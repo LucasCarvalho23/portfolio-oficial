@@ -1,0 +1,30 @@
+/************************************************
+
+INDEX:
+- FORM
+
+*************************************************/
+
+@charset "UTF-8";
+
+/****************************
+********* INDEX *************
+****************************/
+
+/***********
+    FORM 
+***********/
+.a-login {
+    text-decoration: none;
+    color: black;
+}
+.a-login:hover {
+    font-size: 1.1em;
+}
+.form-login {
+    margin-top: 250px;
+}
+.borda-form {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}

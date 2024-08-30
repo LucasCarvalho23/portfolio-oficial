@@ -47,10 +47,29 @@
     display: inline-block; 
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    position: relative;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1; 
+    padding-bottom: 50px;
+}
+
 /* FOOTER */
 
 footer {
     text-align: center;
+    height: 70px;
+    background-color: #f8f9fa;
+    margin-top: auto;
 }
 
 footer p {
@@ -128,6 +147,15 @@ footer p {
     margin-top: 70px;
 }
 
+.container-images {
+    margin-top: 50px;
+}
+
 .container-img {
-    margin-bottom: 300px;
+    height: 90vh;
+}
+
+.border-img {
+    border: 1px solid #003f5c;
+    border-radius: 10px;
 }

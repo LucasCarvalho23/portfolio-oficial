@@ -19,7 +19,7 @@
         private function loadUserData() {
             session_start();
             if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
-                $this->view->nameuser = $_SESSION['nameuser']; // Carrega nome do usuário da sessão
+                $this->view->nameuser = isset($_SESSION['nameuser']) ? $_SESSION['nameuser'] : 'Guest';
             }
         }
 

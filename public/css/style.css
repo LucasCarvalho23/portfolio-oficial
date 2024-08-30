@@ -47,6 +47,17 @@
     display: inline-block; 
 }
 
+/* FOOTER */
+
+footer {
+    text-align: center;
+}
+
+footer p {
+    padding-left: 20px;
+    font-weight: bold;
+}
+
 /****************************
 ********* LOGIN *************
 ****************************/
@@ -102,4 +113,21 @@
     width: 100%;
     height: 90vh;
     object-fit: cover; 
+}
+
+.link-github {
+    text-decoration: none;
+    color: black;
+}
+
+.link-github:hover {
+    color: var(--colorBlue);
+}
+
+.container-info {
+    margin-top: 70px;
+}
+
+.container-img {
+    margin-bottom: 300px;
 }

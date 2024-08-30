@@ -15,7 +15,7 @@
         }
 
         public function login() {
-            echo "Cheguei no login";
+            $this->render('login');
         }
 
         public function portfolio() {

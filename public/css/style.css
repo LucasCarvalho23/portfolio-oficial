@@ -1,24 +1,68 @@
 /************************************************
 
-INDEX:
+DEFAULT
 
+INDEX
+- NAVBAR
+
+LOGIN
 
 *************************************************/
 
+/****************************
+********* DEFAULT ***********
+****************************/
+
 @charset "UTF-8";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --colorBlue: rgb(47, 78, 255);
+}
 
 /****************************
 ********* INDEX *************
 ****************************/
+
+/* NAVBAR */
 
 .underscore:hover {
     text-decoration: underline;
     text-underline-offset: 4px;
 }
 
-@media (max-width: 991.98px) { /* Ajusta para telas menores que 'lg' */
+@media (max-width: 991.98px) { 
     .navbar-nav {
-        flex-direction: column; /* Muda a direção dos itens para coluna */
-        align-items: flex-end; /* Alinha os itens à direita */
+        flex-direction: column;
+        align-items: flex-end;
     }
+}
+
+/****************************
+********* LOGIN *************
+****************************/
+
+.container-login {
+    margin-top: 150px;
+}
+
+.input-login {
+    border: 1px solid rgb(105, 105, 105);
+    border-style: dotted;
+}
+
+.forgot-password {
+    text-decoration: none;
+    font-size: .9em;
+}
+
+.invalid-login {
+    font-size: .8em;
+    margin-left: auto;
+    padding-left: 10px;
 }

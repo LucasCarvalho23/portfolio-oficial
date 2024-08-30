@@ -7,23 +7,65 @@
     class IndexController extends Action {
 
         public function aboutme() {
-            echo "Cheguei no about me";
+            $this->loadUserData();
+            $this->render('aboutme');
         }
 
         public function index() {
+            $this->loadUserData();
             $this->render('index');
+        }
+
+        private function loadUserData() {
+            session_start();
+            if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
+                $this->view->nameuser = $_SESSION['nameuser']; // Carrega nome do usuário da sessão
+            }
         }
 
         public function login() {
             $this->render('login');
         }
 
+        public function logout() {
+            session_start();
+            session_destroy();
+            header('Location: /login');
+        }
+
         public function portfolio() {
-            echo "Cheguei no Portfolio";
+            $this->loadUserData();
+            $this->render('portfolio');
         }
 
         public function timeline() {
-            echo "Cheguei no pseudo-twitter";
+            $this->loadUserData();
+            if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
+                $this->render('timelineadm');
+            } else {
+                $this->render('timeline');
+            }
+        }
+
+        public function timelineadm() {
+            session_start();
+            if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
+                $this->render('timelineadm');
+            } else {
+                $login = Container::getModel('login');
+                $login->__set('login', $_POST['login']);
+                $login->__set('password', md5($_POST['password']));
+                $return = $login->validateLogin();
+                $this->view->nameuser = $login->readLogin();
+                if ($return) {
+                    $_SESSION['login'] = true;
+                    $_SESSION['nameuser'] = $login->readLogin();
+                    $this->render('timelineadm');
+                } else {
+                    $_SESSION['login'] = false;
+                    header('Location: /login?error=authentication');
+                }
+            }
         }
 
     }

@@ -21,6 +21,11 @@
                 'controller' => 'IndexController',
                 'action' => 'login'
             );
+            $routes['logout'] = array(
+                'route' => '/logout',
+                'controller' => 'IndexController',
+                'action' => 'logout'
+            );
             $routes['portfolio'] = array(
                 'route' => '/portfolio',
                 'controller' => 'IndexController',
@@ -30,6 +35,12 @@
                 'route' => '/timeline',
                 'controller' => 'IndexController',
                 'action' => 'timeline'
+            );
+
+            $routes['timelineadm'] = array(
+                'route' => '/timelineadm',
+                'controller' => 'IndexController',
+                'action' => 'timelineadm'
             );
 
             $this->setRoutes($routes);

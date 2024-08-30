@@ -34,7 +34,12 @@
       </ul>
 
       <div class="d-flex ms-auto justify-content-end justify-content-lg-center">
-      <a href="/login" class="btn btn-outline-primary">Login</a>
+        <?php 
+          if (isset($this->view->nameuser)) {?>
+            <span class="span-welcome"> Hi, <?= $this->view->nameuser ?>, you're welcome!</span>
+        <?php } else {?>
+          <a href="/login" class="btn btn-outline-primary">Login</a>
+        <?php }?>
       </div>
     </div>
 

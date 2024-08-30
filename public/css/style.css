@@ -1,7 +1,7 @@
 /************************************************
 
 INDEX:
-- FORM
+
 
 *************************************************/
 
@@ -11,20 +11,14 @@ INDEX:
 ********* INDEX *************
 ****************************/
 
-/***********
-    FORM 
-***********/
-.a-login {
-    text-decoration: none;
-    color: black;
+.underscore:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
-.a-login:hover {
-    font-size: 1.1em;
-}
-.form-login {
-    margin-top: 250px;
-}
-.borda-form {
-    border: 1px solid lightgray;
-    border-radius: 10px;
+
+@media (max-width: 991.98px) { /* Ajusta para telas menores que 'lg' */
+    .navbar-nav {
+        flex-direction: column; /* Muda a direção dos itens para coluna */
+        align-items: flex-end; /* Alinha os itens à direita */
+    }
 }

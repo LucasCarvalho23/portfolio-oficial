@@ -6,10 +6,20 @@
     class Route extends Bootstrap {
 
         protected function initRoutes() {
-            $routes['home'] = array(
+            $routes['aboutme'] = array(
+                'route' => '/aboutme',
+                'controller' => 'IndexController',
+                'action' => 'aboutme'
+            );
+            $routes['index'] = array(
                 'route' => '/',
                 'controller' => 'IndexController',
                 'action' => 'index'
+            );
+            $routes['login'] = array(
+                'route' => '/login',
+                'controller' => 'IndexController',
+                'action' => 'login'
             );
             $routes['portfolio'] = array(
                 'route' => '/portfolio',
@@ -20,11 +30,6 @@
                 'route' => '/timeline',
                 'controller' => 'IndexController',
                 'action' => 'timeline'
-            );
-            $routes['aboutme'] = array(
-                'route' => '/aboutme',
-                'controller' => 'IndexController',
-                'action' => 'aboutme'
             );
 
             $this->setRoutes($routes);

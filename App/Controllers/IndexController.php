@@ -6,8 +6,16 @@
 
     class IndexController extends Action {
 
+        public function aboutme() {
+            echo "Cheguei no about me";
+        }
+
         public function index() {
             $this->render('index');
+        }
+
+        public function login() {
+            echo "Cheguei no login";
         }
 
         public function portfolio() {
@@ -16,10 +24,6 @@
 
         public function timeline() {
             echo "Cheguei no pseudo-twitter";
-        }
-
-        public function aboutme() {
-            echo "Cheguei no about me";
         }
 
     }

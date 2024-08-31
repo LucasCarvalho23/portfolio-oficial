@@ -56,11 +56,11 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 .main-content {
     flex: 1; 
-    padding-bottom: 50px;
 }
 
 /* FOOTER */
@@ -81,6 +81,12 @@ footer p {
 footer a {
     text-decoration: none;
     color: black;
+}
+
+footer hr {
+    margin-top: 0;
+    padding-top: 0;
+    border: 1px solid black;
 }
 
 /****************************
@@ -112,6 +118,8 @@ footer a {
 ********* PORTFOLIO *********
 ****************************/
 
+/* CAROUSEL */
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-color: rgba(0, 0, 0, 0.5); 
@@ -140,6 +148,8 @@ footer a {
     object-fit: cover; 
 }
 
+/* DATAS */
+
 .link-github {
     text-decoration: none;
     color: black;
@@ -153,12 +163,30 @@ footer a {
     margin-top: 70px;
 }
 
-.container-images {
-    margin-top: 50px;
-}
+/* IMAGES */
 
 .container-img {
-    height: 90vh;
+    background-color: lightgray;
+}
+
+.container-images {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 576px) {
+    .container-info,
+    .container-images {
+        text-align: center;
+    }
+
+    .container-images .row {
+        justify-content: center;
+    }
+
+    .container-images .col-12 {
+        max-width: 100%;
+    }
 }
 
 .border-img {

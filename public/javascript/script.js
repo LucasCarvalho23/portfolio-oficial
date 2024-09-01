@@ -23,13 +23,23 @@ $(document).ready(() => {
 
             this.imgPortfolio01.addEventListener("click", () => { 
                 this.valueTitle = this.imgPortfolio01.title
-                this.loadTitle() 
+                this.routeLoadTitle()
             })
             this.imgPortfolio02.addEventListener("click", () => { 
                 this.valueTitle = this.imgPortfolio02.title
-                this.loadTitle() 
+                this.routeLoadTitle()
             })
 
+        }
+
+        routeLoadTitle() {
+            this.targetElement = document.querySelector('.container-img');
+                if (this.targetElement) {
+                    this.targetElement.scrollIntoView({
+                        behavior: 'smooth' 
+                    });
+                }
+            this.loadTitle() 
         }
 
         loadTitle() {

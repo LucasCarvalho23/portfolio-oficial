@@ -20,9 +20,10 @@
             $this->$attr = $value;
         }
 
-        public function readJobs() {
-            $query = "SELECT name, description, technologies, github, title, site FROM tb_jobs";
+        public function readJobs($titleImg) {
+            $query = "SELECT name, description, technologies, github, title, site FROM tb_jobs WHERE title = :title"; //escudo vai ser a variável que vai ser recebida pelo ajax
             $stmt = $this->db->prepare($query);
+            $stmt->bindValue(":title", $titleImg, \PDO::PARAM_STR);
             $stmt->execute();
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         }

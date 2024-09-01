@@ -32,14 +32,14 @@
         <div class="container">
             <div class="row">
                 <div class="d-flex justify-content-center">
-                    <div class="col-12 col-sm-6 col-md-4 container-info pt-2 text-center">
-                        <p><strong>Project name:</strong> GTEC - Sistema Oficina</p>
-                        <p><strong>Description:</strong> Create a portal called Oficina, where employees will fill in information about the works carried out.
-                        There will be after the login screen, 4 accessible portals and a Power BI.</p>
-                        <p><strong>Technologies used:</strong> PHP7, Bootstrap, SQL and Git</p>
-                        <p><strong>Github repository:</strong> <a class="link-github" href="https://github.com/LucasCarvalho23/btec" target="_blank"><span>Here</span></a></p>
-                        <p><strong>Website hosting:</strong> In progress</p>
-                    </div>
+                <div class="container-info pt-2 text-center">
+                    <p><strong>Project name:</strong> <span id="projectName"><?= isset($this->view->name) ? $this->view->name : 'No project name available'; ?></span></p>
+                    <p><strong>Description:</strong> <span id="projectDescription"><?= isset($this->view->description) ? $this->view->description : 'No description available'; ?></span></p>
+                    <p><strong>Technologies used:</strong> <span id="projectTechnologies"><?= isset($this->view->technologies) ? $this->view->technologies : 'No technologies available'; ?></span></p>
+                    <p><strong>Github repository:</strong> <a class="link-github" href="<?= isset($this->view->github) ? $this->view->github : '#'; ?>" target="_blank"><span>Here</span></a></p>
+                    <p><strong>Website hosting:</strong> <a class="link-github" href="<?= isset($this->view->site) ? $this->view->site : '#'; ?>" target="_blank"><span>Here</span></a></p>
+                </div>
+
                 </div>
                 <div class="col-12 container-images">
                     <div class="row">

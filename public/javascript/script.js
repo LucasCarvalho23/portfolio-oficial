@@ -19,7 +19,21 @@ $(document).ready(() => {
             } else {
                 this.imgPortfolio01.src = "../images/desktop/01/btec.png";
                 this.imgPortfolio02.src = "../images/desktop/02/escudo.png";
-            }
+            }        
+
+            this.imgPortfolio01.addEventListener("click", () => { 
+                this.valueTitle = this.imgPortfolio01.title
+                this.loadTitle() 
+            })
+            this.imgPortfolio02.addEventListener("click", () => { 
+                this.valueTitle = this.imgPortfolio02.title
+                this.loadTitle() 
+            })
+
+        }
+
+        loadTitle() {
+            console.log(this.valueTitle);    
         }
     }
 

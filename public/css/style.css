@@ -148,6 +148,18 @@ footer hr {
     object-fit: cover; 
 }
 
+#carouselExampleIndicators {
+    max-width: 100%;
+    margin: 0 auto; 
+}
+
+
+#carouselExampleIndicators .carousel-inner img {
+    width: 100%; 
+    height: auto;
+    max-width: 100%;
+}
+
 /* DATAS */
 
 .link-github {
@@ -194,26 +206,11 @@ footer hr {
     border-radius: 10px;
 }
 
-/* Remove o padding e ajusta a largura máxima do carousel */
-#carouselExampleIndicators {
-    max-width: 100%;
-    margin: 0 auto; /* Centraliza o carousel horizontalmente na página */
-}
-
-/* Ajusta as imagens do carousel para não serem cortadas */
-#carouselExampleIndicators .carousel-inner img {
-    width: 100%; /* Garante que a imagem ocupe toda a largura do container */
-    height: auto; /* Mantém a proporção da imagem */
-    max-width: 100%; /* Garante que a imagem não ultrapasse a largura disponível */
-}
-
-/* CSS para imagens em telas grandes */
 .fixed-img {
     width: 250px;
     height: 250px;
 }
 
-/* CSS para imagens em telas menores */
 @media (max-width: 767.98px) {
     .fixed-img {
         max-width: 250px;

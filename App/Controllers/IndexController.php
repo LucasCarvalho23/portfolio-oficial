@@ -35,6 +35,16 @@
 
         public function portfolio() {
             $this->loadUserData();
+
+
+            $jobs = Container::getModel('jobs');
+            $job = $jobs->readJobs();
+
+            echo ("<pre>");
+            print_r($job);
+            echo ("</pre>");
+            die;
+
             $this->render('portfolio');
         }
 

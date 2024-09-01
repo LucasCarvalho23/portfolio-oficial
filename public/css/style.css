@@ -29,15 +29,40 @@
 
 /* NAVBAR */
 
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
+    padding-right: 25px; 
+    overflow: visible;
+}
+
+.navbar-nav {
+    margin-right: 0; 
+}
+
 .underscore:hover {
     text-decoration: underline;
     text-underline-offset: 4px;
+}
+
+.navbar-expand-lg .navbar-collapse {
+    padding-right: 0;
+}
+
+.nav-item {
+    margin-right: 10px; 
+}
+
+.nav-link {
+    padding-right: 0; 
 }
 
 @media (max-width: 991.98px) { 
     .navbar-nav {
         flex-direction: column;
         align-items: flex-end;
+        margin-right: 0;
     }
 }
 
@@ -173,6 +198,13 @@ footer hr {
 
 .container-info {
     margin-top: 70px;
+    padding: 0 10px;
+}
+
+.container-info p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%; 
 }
 
 /* IMAGES */
@@ -186,10 +218,28 @@ footer hr {
     margin-bottom: 50px;
 }
 
+.margin-desktop {
+    padding-top: 20px;
+}
+
+@media (max-width: 991.98px) { 
+    .margin-desktop {
+        padding-top: 0px;
+    }
+}
+
 @media (max-width: 576px) {
     .container-info,
     .container-images {
         text-align: center;
+    }
+
+    .container-info {
+        padding: 0 15px; /* Adiciona um pouco mais de padding em telas muito pequenas */
+    }
+
+    .container-images .row {
+        margin: 0;
     }
 
     .container-images .row {
@@ -198,6 +248,12 @@ footer hr {
 
     .container-images .col-12 {
         max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .fixed-img {
+        max-width: 100%;
+        max-height: 250px;
     }
 }
 

@@ -222,9 +222,48 @@ footer hr {
     padding-top: 20px;
 }
 
+.border-img {
+    border: 1px solid #003f5c;
+    border-radius: 10px;
+}
+
+.fixed-img {
+    width: 250px;
+    height: 250px;
+}
+
+@media (max-width: 1024px) {
+    .container-images .row {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .container-images .col-12 {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .fixed-img {
+        width: 100%; 
+        max-width: 250px; 
+        height: auto; 
+    }
+}
+
 @media (max-width: 991.98px) { 
     .margin-desktop {
         padding-top: 0px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .fixed-img {
+        max-width: 250px;
+        max-height: 250px;
+        width: auto;
+        height: auto;
     }
 }
 
@@ -235,7 +274,7 @@ footer hr {
     }
 
     .container-info {
-        padding: 0 15px; /* Adiciona um pouco mais de padding em telas muito pequenas */
+        padding: 0 15px; 
     }
 
     .container-images .row {
@@ -257,22 +296,5 @@ footer hr {
     }
 }
 
-.border-img {
-    border: 1px solid #003f5c;
-    border-radius: 10px;
-}
 
-.fixed-img {
-    width: 250px;
-    height: 250px;
-}
-
-@media (max-width: 767.98px) {
-    .fixed-img {
-        max-width: 250px;
-        max-height: 250px;
-        width: auto;
-        height: auto;
-    }
-}
 

@@ -114,6 +114,19 @@ footer hr {
     border: 1px solid black;
 }
 
+.icon-up {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    display: none;
+}
+
+.icon-up.show {
+    display: block;
+}
+
 /****************************
 ********* LOGIN *************
 ****************************/

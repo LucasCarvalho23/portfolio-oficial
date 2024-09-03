@@ -2,6 +2,13 @@ $(document).ready(() => {
     class Resolution {
         constructor() {
             this.updateImages();
+            this.iconUp = document.querySelector("#icon-up")
+            this.iconUp.addEventListener("click", ()=> {
+                this.routeLoadTop()
+            })
+            document.addEventListener('scroll', () => {
+                this.handleScroll();
+            });
         }
 
         updateImages() {
@@ -65,6 +72,23 @@ $(document).ready(() => {
                     console.error('Error loading title:', error);
                 }
             });
+        }
+
+        routeLoadTop() {
+            this.targetElementUp = document.querySelector('body');
+            if (this.targetElementUp) {
+                this.targetElementUp.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        handleScroll() {
+            if (window.scrollY > window.innerHeight) {
+                this.iconUp.classList.add('show');
+            } else {
+                this.iconUp.classList.remove('show');
+            }
         }
     }
 

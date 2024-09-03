@@ -16,6 +16,7 @@ $(document).ready(() => {
             this.imgPortfolio01 = document.querySelector("#img-portfolio01");
             this.imgPortfolio02 = document.querySelector("#img-portfolio02");
             this.imgPortfolio03 = document.querySelector("#img-portfolio03");
+            this.imgPortfolio04 = document.querySelector("#img-portfolio04");
 
             this.bottomImgPortfolio01 = document.querySelector("#bottom-img-portfolio01")
             this.bottomImgPortfolio02 = document.querySelector("#bottom-img-portfolio02")
@@ -28,14 +29,17 @@ $(document).ready(() => {
                 this.imgPortfolio01.src = "../images/mobile/01/btec-mobile.png";
                 this.imgPortfolio02.src = "../images/mobile/02/escudo-mobile.png";
                 this.imgPortfolio03.src = "../images/mobile/03/gn-mobile.png";
+                this.imgPortfolio04.src = "../images/mobile/04/spotify-mobile.png";
             } else if (this.width <= 1024) {
                 this.imgPortfolio01.src = "../images/mobile/01/btec.png";
                 this.imgPortfolio02.src = "../images/mobile/02/escudo.png";
                 this.imgPortfolio03.src = "../images/mobile/03/gn-ipad.png";
+                this.imgPortfolio04.src = "../images/mobile/04/spotify-ipad.png";
             } else {
                 this.imgPortfolio01.src = "../images/desktop/01/btec.png";
                 this.imgPortfolio02.src = "../images/desktop/02/escudo.png";
                 this.imgPortfolio03.src = "../images/desktop/03/gn.png";
+                this.imgPortfolio04.src = "../images/desktop/04/spotify-desktop.png";
             }
 
             this.imgPortfolio01.addEventListener("click", () => { 
@@ -66,6 +70,16 @@ $(document).ready(() => {
                 this.bottomImgPortfolio04.src = "../images/desktop/03/portfolio004.png"
                 this.bottomImgPortfolio05.src = "../images/desktop/03/portfolio005.png"
                 this.bottomImgPortfolio06.src = "../images/desktop/03/portfolio006.png"
+                this.routeLoadTitle();
+            });
+            this.imgPortfolio04.addEventListener("click", () => { 
+                this.valueTitle = this.imgPortfolio04.title;
+                this.bottomImgPortfolio01.src = "../images/desktop/04/portfolio001.png"
+                this.bottomImgPortfolio02.src = "../images/desktop/04/portfolio002.png"
+                this.bottomImgPortfolio03.src = "../images/desktop/04/portfolio003.png"
+                this.bottomImgPortfolio04.src = "../images/desktop/04/portfolio004.png"
+                this.bottomImgPortfolio05.src = "../images/desktop/04/portfolio005.png"
+                this.bottomImgPortfolio06.src = "../images/desktop/04/portfolio006.png"
                 this.routeLoadTitle();
             });
         }

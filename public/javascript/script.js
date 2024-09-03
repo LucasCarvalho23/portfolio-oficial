@@ -15,25 +15,57 @@ $(document).ready(() => {
             this.width = window.innerWidth; 
             this.imgPortfolio01 = document.querySelector("#img-portfolio01");
             this.imgPortfolio02 = document.querySelector("#img-portfolio02");
+            this.imgPortfolio03 = document.querySelector("#img-portfolio03");
+
+            this.bottomImgPortfolio01 = document.querySelector("#bottom-img-portfolio01")
+            this.bottomImgPortfolio02 = document.querySelector("#bottom-img-portfolio02")
+            this.bottomImgPortfolio03 = document.querySelector("#bottom-img-portfolio03")
+            this.bottomImgPortfolio04 = document.querySelector("#bottom-img-portfolio04")
+            this.bottomImgPortfolio05 = document.querySelector("#bottom-img-portfolio05")
+            this.bottomImgPortfolio06 = document.querySelector("#bottom-img-portfolio06")
 
             if (this.width <= 500) {
                 this.imgPortfolio01.src = "../images/mobile/01/btec-mobile.png";
                 this.imgPortfolio02.src = "../images/mobile/02/escudo-mobile.png";
+                this.imgPortfolio03.src = "../images/mobile/03/gn-mobile.png";
             } else if (this.width <= 1024) {
                 this.imgPortfolio01.src = "../images/mobile/01/btec.png";
                 this.imgPortfolio02.src = "../images/mobile/02/escudo.png";
+                this.imgPortfolio03.src = "../images/mobile/03/gn-ipad.png";
             } else {
                 this.imgPortfolio01.src = "../images/desktop/01/btec.png";
                 this.imgPortfolio02.src = "../images/desktop/02/escudo.png";
+                this.imgPortfolio03.src = "../images/desktop/03/gn.png";
             }
 
             this.imgPortfolio01.addEventListener("click", () => { 
                 this.valueTitle = this.imgPortfolio01.title;
+                this.bottomImgPortfolio01.src = "../images/desktop/01/portfolio001.png"
+                this.bottomImgPortfolio02.src = "../images/desktop/01/portfolio002.png"
+                this.bottomImgPortfolio03.src = "../images/desktop/01/portfolio003.png"
+                this.bottomImgPortfolio04.src = "../images/desktop/01/portfolio004.png"
+                this.bottomImgPortfolio05.src = "../images/desktop/01/portfolio005.png"
+                this.bottomImgPortfolio06.src = "../images/desktop/01/portfolio006.png"
                 this.routeLoadTitle();
             });
-
             this.imgPortfolio02.addEventListener("click", () => { 
                 this.valueTitle = this.imgPortfolio02.title;
+                this.bottomImgPortfolio01.src = "../images/desktop/02/portfolio001.png"
+                this.bottomImgPortfolio02.src = "../images/desktop/02/portfolio002.png"
+                this.bottomImgPortfolio03.src = "../images/desktop/02/portfolio003.png"
+                this.bottomImgPortfolio04.src = "../images/desktop/02/portfolio004.png"
+                this.bottomImgPortfolio05.src = "../images/desktop/02/portfolio005.png"
+                this.bottomImgPortfolio06.src = "../images/desktop/02/portfolio006.png"
+                this.routeLoadTitle();
+            });
+            this.imgPortfolio03.addEventListener("click", () => { 
+                this.valueTitle = this.imgPortfolio03.title;
+                this.bottomImgPortfolio01.src = "../images/desktop/03/portfolio001.png"
+                this.bottomImgPortfolio02.src = "../images/desktop/03/portfolio002.png"
+                this.bottomImgPortfolio03.src = "../images/desktop/03/portfolio003.png"
+                this.bottomImgPortfolio04.src = "../images/desktop/03/portfolio004.png"
+                this.bottomImgPortfolio05.src = "../images/desktop/03/portfolio005.png"
+                this.bottomImgPortfolio06.src = "../images/desktop/03/portfolio006.png"
                 this.routeLoadTitle();
             });
         }

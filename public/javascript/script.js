@@ -42,15 +42,13 @@ $(document).ready(() => {
         }
 
         loadTitle() {
-            const self = this; // Armazena o contexto para uso dentro do callback do AJAX
+            const self = this; // Stores context for use within the AJAX callback
             $.ajax({
-                url: '/portfolio', // Endpoint que vai ser chamado no IndexController
+                url: '/portfolio',
                 method: 'POST',
-                data: { title: self.valueTitle }, // Enviando o valor de valueTitle
+                data: { title: self.valueTitle }, 
                 success: function(response) {
-                    // Parsing da resposta para JSON
                     const data = JSON.parse(response);
-
                     if (data.error) {
                         console.error(data.error);
                     } else {
@@ -64,7 +62,7 @@ $(document).ready(() => {
                     }
                 },
                 error: function(xhr, status, error) {
-                    console.error('Erro ao carregar o título:', error);
+                    console.error('Error loading title:', error);
                 }
             });
         }

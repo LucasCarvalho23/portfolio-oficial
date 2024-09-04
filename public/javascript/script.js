@@ -123,7 +123,7 @@ $(document).ready(() => {
         }
 
         loadTitle() {
-            const self = this; // Stores context for use within the AJAX callback
+            const self = this;
             $.ajax({
                 url: '/portfolio',
                 method: 'POST',
@@ -133,7 +133,6 @@ $(document).ready(() => {
                     if (data.error) {
                         console.error(data.error);
                     } else {
-                        // Atualiza o conteúdo dinamicamente
                         $('#titleImg').text(data.title);
                         $('.container-info p:eq(0)').html(`<strong>Project name:</strong> ${data.name}`);
                         $('.container-info p:eq(1)').html(`<strong>Description:</strong> ${data.description}`);
@@ -172,3 +171,16 @@ $(document).ready(() => {
         resolution.updateImages();
     });
 });
+
+function openModal(image) {
+    var modal = document.getElementById("imageModal");
+    var modalImg = document.getElementById("imgModal");
+
+    modal.style.display = "block";
+    modalImg.src = image.src; 
+}
+
+function closeModal() {
+    var modal = document.getElementById("imageModal");
+    modal.style.display = "none";
+}

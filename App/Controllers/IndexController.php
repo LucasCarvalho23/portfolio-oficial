@@ -43,7 +43,7 @@ class IndexController extends Action {
     }
     
     public function getJobDetails() {
-        $titleImg = $_POST['title']; // Recebe o valor enviado via AJAX
+        $titleImg = $_POST['title']; 
         $jobs = Container::getModel('jobs');
         $job = $jobs->readJobs($titleImg);
     
@@ -56,7 +56,7 @@ class IndexController extends Action {
                 'site' => $job[0]['site'] ?? '',
                 'title' => $titleImg
             ];
-            echo json_encode($response); // Retorna os dados em formato JSON
+            echo json_encode($response); 
         } else {
             echo json_encode(['error' => 'Job not found']);
         }

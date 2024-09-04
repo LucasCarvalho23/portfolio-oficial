@@ -2,7 +2,6 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <!-- Carousel -->
                 <div id="carouselExampleIndicators" class="carousel slide">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -60,26 +59,31 @@
                 <div class="col-12 container-images">
                     <div class="row">
                         <div class="col-12 col-sm-6 col-md-4 mb-3 d-flex justify-content-center">
-                            <img src="../images/desktop/imgnotfound.png" width="250px" height="250px" class="border-img fixed-img" id="bottom-img-portfolio01">
+                            <img src="../images/desktop/imgnotfound.png" width="250px" height="250px" class="border-img fixed-img" id="bottom-img-portfolio01" onclick="openModal(this)">
                         </div>
                         <div class="col-12 col-sm-6 col-md-4 mb-3 d-flex justify-content-center">
-                            <img src="../images/desktop/imgnotfound.png" width="250px" height="250px" class="border-img fixed-img" id="bottom-img-portfolio02">
+                            <img src="../images/desktop/imgnotfound.png" width="250px" height="250px" class="border-img fixed-img" id="bottom-img-portfolio02" onclick="openModal(this)">
                         </div>
                         <div class="col-12 col-sm-6 col-md-4 mb-3 d-flex justify-content-center">
-                            <img src="../images/desktop/imgnotfound.png" width="250px" height="250px" class="border-img fixed-img" id="bottom-img-portfolio03">
+                            <img src="../images/desktop/imgnotfound.png" width="250px" height="250px" class="border-img fixed-img" id="bottom-img-portfolio03" onclick="openModal(this)">
                         </div>
                         <div class="col-12 col-sm-6 col-md-4 mb-3 d-flex justify-content-center margin-desktop">
-                            <img src="../images/desktop/imgnotfound.png" width="250px" height="250px" class="border-img fixed-img" id="bottom-img-portfolio04">
+                            <img src="../images/desktop/imgnotfound.png" width="250px" height="250px" class="border-img fixed-img" id="bottom-img-portfolio04" onclick="openModal(this)">
                         </div>
                         <div class="col-12 col-sm-6 col-md-4 mb-3 d-flex justify-content-center margin-desktop">
-                            <img src="../images/desktop/imgnotfound.png" width="250px" height="250px" class="border-img fixed-img" id="bottom-img-portfolio05">
+                            <img src="../images/desktop/imgnotfound.png" width="250px" height="250px" class="border-img fixed-img" id="bottom-img-portfolio05" onclick="openModal(this)">
                         </div>
                         <div class="col-12 col-sm-6 col-md-4 mb-3 d-flex justify-content-center margin-desktop">
-                            <img src="../images/desktop/imgnotfound.png" width="250px" height="250px" class="border-img fixed-img" id="bottom-img-portfolio06">
+                            <img src="../images/desktop/imgnotfound.png" width="250px" height="250px" class="border-img fixed-img" id="bottom-img-portfolio06" onclick="openModal(this)">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<div id="imageModal" class="modal-image" onclick="closeModal()">
+    <span class="close">&times;</span>
+    <img class="modal-content-image" id="imgModal">
 </div>

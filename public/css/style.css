@@ -10,6 +10,7 @@
 --- DATAS
 --- IMAGES
 ---MODAL IMG
+-TIMELINE
 
 *************************************************/
 
@@ -355,4 +356,41 @@ footer hr {
 }
 
 
+/****************************
+********* TIMELINE **********
+****************************/
 
+.container-timeline {
+    border: 1px solid lightgray;
+    padding-top: 50px;
+    border-radius: 10px;
+}
+
+.image-avatar {
+    width: 150px;
+    margin-left: 30px;
+}
+
+.container-bio {
+    padding-left: 50px;
+}
+
+.container-bio > p {
+    font-style: italic;
+}
+
+.container-posts {
+    margin-top: 100px;
+}
+
+.container-img-individual-post {
+    text-align: center;
+}
+
+.img-individual-post {
+    width: 90px;
+}
+
+.container-content-post {
+    font-size: .9em;
+}

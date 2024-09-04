@@ -379,6 +379,15 @@ footer hr {
     font-style: italic;
 }
 
+.container-bio > spam {
+    font-size: .9em;
+}
+
+.nav-tab > button {
+    color: black;
+    padding: 20px;
+}
+
 .container-posts {
     margin-top: 100px;
 }

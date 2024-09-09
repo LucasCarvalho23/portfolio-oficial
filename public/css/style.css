@@ -485,3 +485,18 @@ footer hr {
 .pinpost-span {
     font-size: .8em;
 }
+
+@media (max-width: 1024px) {
+    .container-post-adm > div {
+        padding: 0;
+        border: 0;
+    }
+
+    .container-form > select, .container-form > textarea {
+        width: 45vw;
+    }
+
+    .container-form > textarea {
+        height: 150px;
+    }
+}

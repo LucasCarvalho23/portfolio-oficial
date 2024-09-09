@@ -486,6 +486,10 @@ footer hr {
     font-size: .8em;
 }
 
+.data-post {
+    font-size: .8em;
+}
+
 @media (max-width: 1024px) {
     .container-post-adm > div {
         padding: 0;

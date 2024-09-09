@@ -1,4 +1,119 @@
-<div class="mt-5">
-    <p>Timeline Admin</p>
-    <a href="/logout">Logout</a>
+<div class="container container-fluid">
+    <div class="row d-flex container-fluid justify-content-center">
+        <div class="col-8 container-timeline">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="../images/timeline/avatar.png" alt="avatar" class="image-avatar">
+                </div>
+                <div class="col-7 container-prev-bio">
+                    <div class="container-bio">
+                        <h3>Lucas Carvalho</h3>
+                        <p class="bio-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore adipisci magnam nobis explicabo dignissimos ratione autem eius libero perspiciatis veniam dolore facere dolorum totam, odio.</p>
+                        <spam>xxx posts</spam>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <a href="/logout" class="logout-button">Logout</a>
+                </div>
+            </div>
+            <div class="row container-fluid container-post-adm">
+                <div class="col-8 container-fluid justify-content-center">
+                   <form action="#" method="post">
+                        <select class="form-control mb-4 input-login">
+                            <option value="0" name="0">-- Choose a subject --</option>
+                            <option value="technology" name="technology">Technology</option>
+                            <option value="popculture" name="popculture">Pop culture</option>
+                            <option value="othersprojects" name="othersprojects">Others projects</option>
+                            <option value="happening" name="happening">What's happening?</option>
+                        </select>
+                        <textarea class="form-control mb-2 input-login" placeholder="Description"></textarea>
+                        <input type="checkbox" name="pinpost" class="mb-4"><span class="pinpost-span"> Pin post</span>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-secondary" type="submit">Post</button>
+                        </div>
+                   </form>
+                </div>
+            </div>
+            <div class="row container-posts d-flex justify-content-center">
+                <nav>
+                    <div class="nav nav-tabs d-flex justify-content-center nav-tab" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="nav-technology-tab" data-bs-toggle="tab" data-bs-target="#nav-technology" type="button" role="tab" aria-controls="nav-technology" aria-selected="true">Technology</button>
+                        <button class="nav-link" id="nav-popculture-tab" data-bs-toggle="tab" data-bs-target="#nav-popculture" type="button" role="tab" aria-controls="nav-popculture" aria-selected="false">Pop culture</button>
+                        <button class="nav-link" id="nav-others-tab" data-bs-toggle="tab" data-bs-target="#nav-others" type="button" role="tab" aria-controls="nav-others" aria-selected="false">Others projects</button>
+                        <button class="nav-link" id="nav-diary-tab" data-bs-toggle="tab" data-bs-target="#nav-diary" type="button" role="tab" aria-controls="nav-diary" aria-selected="false">What's happening?</button>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-technology" role="tabpanel" aria-labelledby="nav-technology-tab">
+                        <div class="col-10">
+                            <hr>
+                            <div class="row container-post-timeline d-flex justify-content-center">
+                                <div class="col-3 container-img-individual-post d-none d-md-block">
+                                    <img src="../images/timeline/avatar.png" alt="avatar" class="img-individual-post">
+                                </div>
+                                <div class="col-9 container-content-post">
+                                    <h5>Lucas Carvalho</h5>
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut beatae quod nobis quisquam cumque! Maxime voluptas suscipit, nam hic facilis assumenda, ipsum quam non magnam maiores commodi, ipsa vel sunt.</p>
+                                    <div class="margin-right">
+                                        <p>Data: xx/xx/xxxx</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-popculture" role="tabpanel" aria-labelledby="nav-popculture-tab">
+                        <div class="col-10">
+                            <hr>
+                            <div class="row container-post-timeline d-flex justify-content-center">
+                                <div class="col-3 container-img-individual-post d-none d-md-block">
+                                    <img src="../images/timeline/avatar.png" alt="avatar" class="img-individual-post">
+                                </div>
+                                <div class="col-9 container-content-post">
+                                    <h5>Lucas Carvalho</h5>
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut beatae quod nobis quisquam cumque! Maxime voluptas suscipit, nam hic facilis assumenda, ipsum quam non magnam maiores commodi, ipsa vel sunt.</p>
+                                    <div class="margin-right">
+                                        <p>Data: xx/xx/xxxx</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-others" role="tabpanel" aria-labelledby="nav-others-tab">
+                        <div class="col-10">
+                            <hr>
+                            <div class="row container-post-timeline d-flex justify-content-center">
+                                <div class="col-3 container-img-individual-post d-none d-md-block">
+                                    <img src="../images/timeline/avatar.png" alt="avatar" class="img-individual-post">
+                                </div>
+                                <div class="col-9 container-content-post">
+                                    <h5>Lucas Carvalho</h5>
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut beatae quod nobis quisquam cumque! Maxime voluptas suscipit, nam hic facilis assumenda, ipsum quam non magnam maiores commodi, ipsa vel sunt.</p>
+                                    <div class="margin-right">
+                                        <p>Data: xx/xx/xxxx</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-diary" role="tabpanel" aria-labelledby="nav-diary-tab">
+                        <div class="col-10">
+                            <hr>
+                            <div class="row container-post-timeline d-flex justify-content-center">
+                                <div class="col-3 container-img-individual-post d-none d-md-block">
+                                    <img src="../images/timeline/avatar.png" alt="avatar" class="img-individual-post">
+                                </div>
+                                <div class="col-9 container-content-post">
+                                    <h5>Lucas Carvalho</h5>
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut beatae quod nobis quisquam cumque! Maxime voluptas suscipit, nam hic facilis assumenda, ipsum quam non magnam maiores commodi, ipsa vel sunt.</p>
+                                    <div class="margin-right">
+                                        <p>Data: xx/xx/xxxx</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

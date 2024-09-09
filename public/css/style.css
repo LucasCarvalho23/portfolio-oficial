@@ -11,6 +11,7 @@
 --- IMAGES
 ---MODAL IMG
 -TIMELINE
+-TIMELINEADM
 
 *************************************************/
 
@@ -455,4 +456,32 @@ footer hr {
         text-align: center;
     }
  
+}
+
+/****************************
+********* TIMELINEADM *******
+****************************/
+
+.logout-button {
+    text-decoration: none;
+    font-size: .9em;
+    color: red;
+}
+
+.logout-button:hover {
+    color: rgb(146, 1, 1);
+}
+
+.container-post-adm {
+    margin-top: 80px;
+}
+
+.container-post-adm > div {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.pinpost-span {
+    font-size: .8em;
 }

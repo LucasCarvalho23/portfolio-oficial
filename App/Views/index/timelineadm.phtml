@@ -45,71 +45,92 @@
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-technology" role="tabpanel" aria-labelledby="nav-technology-tab">
+                        <?php
+                            use MF\Model\Container;
+                            $post = Container::getModel('post');
+                        ?>
                         <div class="col-10">
-                            <hr>
-                            <div class="row container-post-timeline d-flex justify-content-center">
-                                <div class="col-3 container-img-individual-post d-none d-md-block">
-                                    <img src="../images/timeline/avatar.png" alt="avatar" class="img-individual-post">
-                                </div>
-                                <div class="col-9 container-content-post">
-                                    <h5>Lucas Carvalho</h5>
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut beatae quod nobis quisquam cumque! Maxime voluptas suscipit, nam hic facilis assumenda, ipsum quam non magnam maiores commodi, ipsa vel sunt.</p>
-                                    <div class="margin-right">
-                                        <p>Data: xx/xx/xxxx</p>
+                            <?php
+                                $postTech = $post->readPost('technology');
+                                foreach ($postTech as $key) { 
+                            ?>
+                                <hr>
+                                <div class="row container-post-timeline d-flex justify-content-center">
+                                    <div class="col-3 container-img-individual-post d-none d-md-block">
+                                        <img src="../images/timeline/avatar.png" alt="avatar" class="img-individual-post">
+                                    </div>
+                                    <div class="col-9 container-content-post">
+                                        <h5>Lucas Carvalho</h5>
+                                        <p><?= $key['description'] ?></p>
+                                        <div class="margin-right">
+                                            <p>Data: <?= $key['data'] ?></p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-popculture" role="tabpanel" aria-labelledby="nav-popculture-tab">
                         <div class="col-10">
-                            <hr>
-                            <div class="row container-post-timeline d-flex justify-content-center">
-                                <div class="col-3 container-img-individual-post d-none d-md-block">
-                                    <img src="../images/timeline/avatar.png" alt="avatar" class="img-individual-post">
-                                </div>
-                                <div class="col-9 container-content-post">
-                                    <h5>Lucas Carvalho</h5>
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut beatae quod nobis quisquam cumque! Maxime voluptas suscipit, nam hic facilis assumenda, ipsum quam non magnam maiores commodi, ipsa vel sunt.</p>
-                                    <div class="margin-right">
-                                        <p>Data: xx/xx/xxxx</p>
+                            <?php
+                                $postTech = $post->readPost('popculture');
+                                foreach ($postTech as $key) { ?>
+                                    <hr>
+                                    <div class="row container-post-timeline d-flex justify-content-center">
+                                        <div class="col-3 container-img-individual-post d-none d-md-block">
+                                            <img src="../images/timeline/avatar.png" alt="avatar" class="img-individual-post">
+                                        </div>
+                                        <div class="col-9 container-content-post">
+                                            <h5>Lucas Carvalho</h5>
+                                            <p><?= $key['description'] ?></p>
+                                            <div class="margin-right">
+                                                <p>Data: <?= $key['data'] ?></p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-others" role="tabpanel" aria-labelledby="nav-others-tab">
                         <div class="col-10">
-                            <hr>
-                            <div class="row container-post-timeline d-flex justify-content-center">
-                                <div class="col-3 container-img-individual-post d-none d-md-block">
-                                    <img src="../images/timeline/avatar.png" alt="avatar" class="img-individual-post">
-                                </div>
-                                <div class="col-9 container-content-post">
-                                    <h5>Lucas Carvalho</h5>
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut beatae quod nobis quisquam cumque! Maxime voluptas suscipit, nam hic facilis assumenda, ipsum quam non magnam maiores commodi, ipsa vel sunt.</p>
-                                    <div class="margin-right">
-                                        <p>Data: xx/xx/xxxx</p>
+                            <?php
+                                $postTech = $post->readPost('othersprojects');
+                                foreach ($postTech as $key) { ?>
+                                    <hr>
+                                    <div class="row container-post-timeline d-flex justify-content-center">
+                                        <div class="col-3 container-img-individual-post d-none d-md-block">
+                                            <img src="../images/timeline/avatar.png" alt="avatar" class="img-individual-post">
+                                        </div>
+                                        <div class="col-9 container-content-post">
+                                            <h5>Lucas Carvalho</h5>
+                                            <p><?= $key['description'] ?></p>
+                                            <div class="margin-right">
+                                                <p>Data: <?= $key['data'] ?></p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-diary" role="tabpanel" aria-labelledby="nav-diary-tab">
                         <div class="col-10">
-                            <hr>
-                            <div class="row container-post-timeline d-flex justify-content-center">
-                                <div class="col-3 container-img-individual-post d-none d-md-block">
-                                    <img src="../images/timeline/avatar.png" alt="avatar" class="img-individual-post">
-                                </div>
-                                <div class="col-9 container-content-post">
-                                    <h5>Lucas Carvalho</h5>
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut beatae quod nobis quisquam cumque! Maxime voluptas suscipit, nam hic facilis assumenda, ipsum quam non magnam maiores commodi, ipsa vel sunt.</p>
-                                    <div class="margin-right">
-                                        <p>Data: xx/xx/xxxx</p>
+                            <?php
+                                $postTech = $post->readPost('happening');
+                                foreach ($postTech as $key) { ?>
+                                    <hr>
+                                    <div class="row container-post-timeline d-flex justify-content-center">
+                                        <div class="col-3 container-img-individual-post d-none d-md-block">
+                                            <img src="../images/timeline/avatar.png" alt="avatar" class="img-individual-post">
+                                        </div>
+                                        <div class="col-9 container-content-post">
+                                            <h5>Lucas Carvalho</h5>
+                                            <p><?= $key['description'] ?></p>
+                                            <div class="margin-right">
+                                                <p>Data: <?= $key['data'] ?></p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

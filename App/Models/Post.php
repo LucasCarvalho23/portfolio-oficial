@@ -40,10 +40,10 @@
             return $stmt->fetchColumn();
         }
 
-        public function readPost($id_usuario) {
-            $query = "SELECT title, description FROM tb_posts  WHERE id_usuario = :id_usuario";
+        public function readPost($title) {
+            $query = "SELECT description, data FROM tb_posts  WHERE title = :title";
             $stmt = $this->db->prepare($query);
-            $stmt->bindValue(':id_usuario', $id_usuario);
+            $stmt->bindValue(':title', $title);
             $stmt->execute();
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         }

@@ -184,3 +184,20 @@ function closeModal() {
     var modal = document.getElementById("imageModal");
     modal.style.display = "none";
 }
+
+document.querySelectorAll('.menu-btn').forEach(button => {
+    button.addEventListener('click', function () {
+        const menuContainer = this.parentElement;
+        menuContainer.classList.toggle('active');
+    });
+});
+
+document.addEventListener('click', function (event) {
+    const isClickInsideMenu = event.target.closest('.menu-container');
+    if (!isClickInsideMenu) {
+        document.querySelectorAll('.menu-container.active').forEach(menu => {
+            menu.classList.remove('active');
+        });
+    }
+});
+

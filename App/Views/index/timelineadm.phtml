@@ -18,15 +18,15 @@
             </div>
             <div class="row container-fluid container-post-adm">
                 <div class="col-8 container-fluid justify-content-center">
-                   <form action="#" method="post" class="container-form">
-                        <select class="form-control mb-4 input-login">
-                            <option value="0" name="0">-- Choose a subject --</option>
-                            <option value="technology" name="technology">Technology</option>
-                            <option value="popculture" name="popculture">Pop culture</option>
-                            <option value="othersprojects" name="othersprojects">Others projects</option>
-                            <option value="happening" name="happening">What's happening?</option>
+                   <form action="/postadm" method="post" class="container-form">
+                        <select class="form-control mb-4 input-login" name="title">
+                            <option value="0">-- Choose a subject --</option>
+                            <option value="technology">Technology</option>
+                            <option value="popculture">Pop culture</option>
+                            <option value="othersprojects">Others projects</option>
+                            <option value="happening">What's happening?</option>
                         </select>
-                        <textarea class="form-control mb-2 input-login" placeholder="Description"></textarea>
+                        <textarea class="form-control mb-2 input-login" name="description" placeholder="Description"></textarea>
                         <input type="checkbox" name="pinpost" class="mb-4"><span class="pinpost-span"> Pin post</span>
                         <div class="d-grid gap-2">
                             <button class="btn btn-secondary" type="submit">Post</button>

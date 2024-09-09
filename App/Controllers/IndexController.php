@@ -61,7 +61,6 @@ class IndexController extends Action {
             echo json_encode(['error' => 'Job not found']);
         }
     }
-    
 
     public function timeline() {
         $this->loadUserData();
@@ -90,6 +89,26 @@ class IndexController extends Action {
                 $_SESSION['login'] = false;
                 header('Location: /login?error=authentication');
             }
+        }
+    }
+
+    public function postadm() {
+        session_start();
+        if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
+            $post = Container::getModel('post');
+            $post->__set('id_usuario', $_SESSION['id']);
+            $post->__set('title', $_POST['title']);
+            $post->__set('description', $_POST['description']);
+            if (isset($_POST['pinpost']) && $_POST['pinpost'] == 'on') {
+                $post->__set('pinpost', $_POST['pinpost']);
+            } else {
+                $post->__set('pinpost', 'off');
+            }
+            $post->__set('data', date('Y-m-d H:i:s'));
+            $post->createPost();
+        } else {
+            session_destroy();
+            header('Location: /login');
         }
     }
 }

@@ -22,6 +22,7 @@
             $stmt->bindValue(":password", md5($_POST['password']), \PDO::PARAM_STR);
             $stmt->execute();
             $user = $stmt->fetch(\PDO::FETCH_ASSOC);
+            $_SESSION['id'] = $user['id'];
             if (isset($user['login']) && isset($user['password'])) {
                 $userLogged = true;
             } else {

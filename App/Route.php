@@ -43,6 +43,12 @@
                 'action' => 'timelineadm'
             );
 
+            $routes['postadm'] = array(
+                'route' => '/postadm',
+                'controller' => 'IndexController',
+                'action' => 'postadm'
+            );
+
             $this->setRoutes($routes);
             
         }

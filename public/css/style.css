@@ -30,6 +30,10 @@
     --colorBlue: rgb(47, 78, 255);
 }
 
+.margin-right {
+    text-align: right;
+}
+
 /****************************
 ********* LAYOUT ************
 ****************************/
@@ -371,6 +375,10 @@ footer hr {
     margin-left: 30px;
 }
 
+.bio-p {
+    visibility: visible;
+}
+
 .container-bio {
     padding-left: 50px;
 }
@@ -402,4 +410,49 @@ footer hr {
 
 .container-content-post {
     font-size: .9em;
+}
+
+@media (max-width: 1024px) {
+    .image-avatar {
+        width: 150px; 
+    }
+
+    .container-bio {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .container-posts .row {
+        flex-direction: row; 
+    }
+
+    .container-post-timeline div {
+        text-align: center;
+    }
+ 
+}
+
+@media (max-width: 750px) {
+    .image-avatar {
+        width: 150px; 
+    }
+
+    .container-bio {
+        padding-left: 0; 
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .container-prev-bio {
+        margin-left: 40px;
+    }
+
+    .container-posts .row {
+        flex-direction: row; 
+    }
+
+    .container-post-timeline div {
+        text-align: center;
+    }
+ 
 }

@@ -443,7 +443,7 @@ footer hr {
         margin-top: 20px;
     }
 
-    .container-prev-bio {
+    .container-prev-bio, .container-posts > div {
         margin-left: 40px;
     }
 

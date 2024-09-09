@@ -64,23 +64,33 @@ class IndexController extends Action {
 
     public function timeline() {
         $this->loadUserData();
+        $post = Container::getModel('post');
         if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
+            $postID = $_SESSION['id'];
+            $this->view->postadm = $post->readCountPost($postID);
             $this->render('timelineadm');
         } else {
+            $postID = '1';
+            $this->view->postadm = $post->readCountPost($postID);
             $this->render('timeline');
         }
     }
 
     public function timelineadm() {
         session_start();
+        $post = Container::getModel('post');
         if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
+            $postID = $_SESSION['id'];
+            $this->view->postadm = $post->readCountPost($postID);
             $this->render('timelineadm');
         } else {
             $login = Container::getModel('login');
             $login->__set('login', $_POST['login']);
             $login->__set('password', md5($_POST['password']));
             $return = $login->validateLogin();
+            $postID = $_SESSION['id'];
             $this->view->nameuser = $login->readLogin();
+            $this->view->postadm = $post->readCountPost($postID);
             if ($return) {
                 $_SESSION['login'] = true;
                 $_SESSION['nameuser'] = $login->readLogin();
@@ -105,11 +115,14 @@ class IndexController extends Action {
                 $post->__set('pinpost', 'off');
             }
             $post->__set('data', date('Y-m-d H:i:s'));
+            $postID = $_SESSION['id'];
+            $this->view->postadm = $post->readCountPost($postID);
             $post->createPost();
         } else {
             session_destroy();
             header('Location: /login');
         }
+        $this->render('timelineadm');
     }
 }
 ?>

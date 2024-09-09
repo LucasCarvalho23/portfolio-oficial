@@ -21,17 +21,33 @@
         }
 
         public function createPost() {
-            echo $this->id_usuario;
-            echo ("<br>");
-            echo $this->title;
-            echo ("<br>");
-            echo $this->description;
-            echo ("<br>");
-            echo $this->pinpost;
-            echo ("<br>");
-            echo $this->data;
-            echo ("<br>");
+            $query = "INSERT INTO tb_posts(id_usuario, title, description, data, pinpost) VALUES (:id_usuario, :title, :description, :data, :pinpost)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
+            $stmt->bindValue(':title', $this->__get('title'));
+            $stmt->bindValue(':description', $this->__get('description'));
+            $stmt->bindValue(':data', $this->__get('data'));
+            $stmt->bindValue(':pinpost', $this->__get('pinpost'));
+            $stmt->execute();
+            return $this;
         }
+
+        public function readCountPost($id_usuario) {
+            $query = "SELECT COUNT(*) FROM tb_posts WHERE id_usuario = :id_usuario";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id_usuario', $id_usuario);
+            $stmt->execute();
+            return $stmt->fetchColumn();
+        }
+
+        public function readPost($id_usuario) {
+            $query = "SELECT title, description FROM tb_posts  WHERE id_usuario = :id_usuario";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id_usuario', $id_usuario);
+            $stmt->execute();
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        }
+        
     }
 
 ?>

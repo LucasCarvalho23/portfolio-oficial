@@ -41,7 +41,7 @@
         }
 
         public function readPost($title) {
-            $query = "SELECT description, data FROM tb_posts  WHERE title = :title";
+            $query = "SELECT description, data FROM tb_posts  WHERE title = :title ORDER BY data DESC";
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(':title', $title);
             $stmt->execute();

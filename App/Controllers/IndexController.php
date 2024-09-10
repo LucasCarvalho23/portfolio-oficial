@@ -137,8 +137,9 @@ class IndexController extends Action {
         session_start();
         $post = Container::getModel('post');
         $post->__set('id', $_POST['id']);
-        $post->__set('title', md5($_POST['title']));
-        $post->__set('description', md5($_POST['description']));
+        $post->__set('title', $_POST['title']);
+        $post->__set('description', $_POST['description']);
+        $post->__set('pinpost', $_POST['pinpost']);
         $post->updatePost();
         $this->view->postadm = $post->readCountPost($_SESSION['id']);
         //header('Location: /timeline');    

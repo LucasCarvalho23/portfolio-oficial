@@ -42,7 +42,7 @@
         }
 
         public function readPost($title) {
-            $query = "SELECT id, title, description, data FROM tb_posts WHERE title = :title ORDER BY data DESC";
+            $query = "SELECT id, title, description, data, pinpost FROM tb_posts WHERE title = :title ORDER BY data DESC";
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(':title', $title);
             $stmt->execute();
@@ -58,7 +58,9 @@
         }
 
         public function updatePost() {
-            echo "consulta";
+            echo "<pre>";
+            print_r($_POST);
+            echo "</pre>";
             die;
         }
         

@@ -87,7 +87,8 @@
                                                         data-bs-target="#modalUpdate" 
                                                         data-id="<?= htmlspecialchars($key['id'] ?? '') ?>"
                                                         data-title="<?= htmlspecialchars($key['title'] ?? '') ?>"
-                                                        data-description="<?= htmlspecialchars($key['description'] ?? '') ?>">
+                                                        data-description="<?= htmlspecialchars($key['description'] ?? '') ?>"
+                                                        data-pinpost="<?= htmlspecialchars($key['pinpost'] ?? '') ?>">
                                                         Update
                                                     </button>
                                                 </li>
@@ -135,7 +136,8 @@
                                                                     data-bs-target="#modalUpdate" 
                                                                     data-id="<?= htmlspecialchars($key['id'] ?? '') ?>"
                                                                     data-title="<?= htmlspecialchars($key['title'] ?? '') ?>"
-                                                                    data-description="<?= htmlspecialchars($key['description'] ?? '') ?>">
+                                                                    data-description="<?= htmlspecialchars($key['description'] ?? '') ?>"
+                                                                    data-pinpost="<?= htmlspecialchars($key['pinpost'] ?? '') ?>">
                                                                     Update
                                                                 </button>
                                                             </li>
@@ -182,7 +184,8 @@
                                                                 data-bs-target="#modalUpdate" 
                                                                 data-id="<?= htmlspecialchars($key['id'] ?? '') ?>"
                                                                 data-title="<?= htmlspecialchars($key['title'] ?? '') ?>"
-                                                                data-description="<?= htmlspecialchars($key['description'] ?? '') ?>">
+                                                                data-description="<?= htmlspecialchars($key['description'] ?? '') ?>"
+                                                                data-pinpost="<?= htmlspecialchars($key['pinpost'] ?? '') ?>">
                                                                 Update
                                                             </button>
                                                         </li>
@@ -229,7 +232,8 @@
                                                                     data-bs-target="#modalUpdate" 
                                                                     data-id="<?= htmlspecialchars($key['id'] ?? '') ?>"
                                                                     data-title="<?= htmlspecialchars($key['title'] ?? '') ?>"
-                                                                    data-description="<?= htmlspecialchars($key['description'] ?? '') ?>">
+                                                                    data-description="<?= htmlspecialchars($key['description'] ?? '') ?>"
+                                                                    data-pinpost="<?= htmlspecialchars($key['pinpost'] ?? '') ?>">
                                                                     Update
                                                                 </button>
                                                             </li>
@@ -277,7 +281,7 @@
                 <option value="happening">What's happening?</option>
             </select>
             <textarea class="form-control mb-2 input-login" name="description" placeholder="Description" id="post-description"></textarea>
-            <input type="checkbox" name="pinpost" class="mb-4"><span class="pinpost-span"> Pin post</span>
+            <input type="checkbox" name="pinpost" id="post-pinpost" class="mb-4"><span class="pinpost-span"> Pin post</span>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-warning text-primary" data-bs-dismiss="modal">Close</button>
@@ -296,12 +300,14 @@
             var postId = button.data('id');
             var postTitle = button.data('title');
             var postDescription = button.data('description');
-            console.log(postTitle);
-            console.log(postDescription);
+            var postPinpost = button.data('pinpost');
             var modal = $(this);
             modal.find('#post-id').val(postId);
             modal.find('#post-title').val(postTitle);
             modal.find('#post-description').val(postDescription);
+            if (postPinpost == 'on') {
+                modal.find('#post-pinpost').prop('checked', true);
+            } 
         });
     });
 </script>

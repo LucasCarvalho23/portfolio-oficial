@@ -170,6 +170,18 @@ $(document).ready(() => {
     $(window).on('resize', () => {
         resolution.updateImages();
     });
+
+    $(document).ready(function() {
+        $('#modalUpdate').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Botão que acionou o modal
+            var postId = button.data('id'); // Extrai o ID do atributo data-id
+
+            // Atualiza o campo oculto do modal
+            var modal = $(this);
+            modal.find('#post-id').val(postId);
+            
+        });
+    });
 });
 
 function openModal(image) {

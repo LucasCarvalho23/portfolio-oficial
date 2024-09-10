@@ -58,7 +58,7 @@
         }
 
         public function updatePost() {
-            echo "Vasco da Gama";
+            echo "consulta";
             die;
         }
         

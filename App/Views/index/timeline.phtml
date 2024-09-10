@@ -81,7 +81,7 @@
                                             <button class="menu-btn">⋮</button>
                                             <ul class="menu-options">
                                                 <li>
-                                                    <button class="button-post" data-bs-toggle="modal" data-bs-target="#modalUpdate">Update</button>
+                                                    <button class="button-post" data-bs-toggle="modal" data-bs-target="#modalUpdate" data-id="<?= $key['id'] ?>">Update</button>
                                                 </li>
                                                 <input type="hidden" name="id" value="<?= $key['id'] ?>">
                                                 <form action="remove" method="post">
@@ -236,6 +236,7 @@
       </div>
       <form action="update" method="post">
         <div class="modal-body">
+            <input type="hidden" id="post-id" name="id">
             <select class="form-control mb-4 input-login" name="title">
                 <option value="0">-- Choose a subject --</option>
                 <option value="technology">Technology</option>

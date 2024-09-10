@@ -307,7 +307,9 @@
             modal.find('#post-description').val(postDescription);
             if (postPinpost == 'on') {
                 modal.find('#post-pinpost').prop('checked', true);
-            } 
+            } else if (postPinpost == 'off') {
+                modal.find('#post-pinpost').prop('checked', false);
+            }
         });
     });
 </script>

@@ -58,9 +58,11 @@
         }
 
         public function updatePost() {
+            $pinpost = $_POST['pinpost'] ?? 'off';
             echo "<pre>";
             print_r($_POST);
             echo "</pre>";
+            echo $pinpost;
             die;
         }
         

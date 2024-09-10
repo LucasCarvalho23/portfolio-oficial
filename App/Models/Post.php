@@ -42,7 +42,7 @@
         }
 
         public function readPost($title) {
-            $query = "SELECT id, description, data FROM tb_posts  WHERE title = :title ORDER BY data DESC";
+            $query = "SELECT id, description, data FROM tb_posts WHERE title = :title ORDER BY data DESC";
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(':title', $title);
             $stmt->execute();
@@ -50,7 +50,11 @@
         }
 
         public function removePost() {
-            print_r ($_POST);
+            $query = "DELETE FROM tb_posts WHERE id = :id";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id', $_POST['id']);
+            $stmt->execute();
+            return true;
         }
         
     }

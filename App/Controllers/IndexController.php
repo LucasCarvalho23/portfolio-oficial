@@ -86,8 +86,11 @@ class IndexController extends Action {
     }
 
     public function remove() {
+        session_start();
         $post = Container::getModel('post');
         $post->removePost();
+        $this->view->postadm = $post->readCountPost($_SESSION['id']);
+        header('Location: /timeline');
     }
 
     public function timeline() {

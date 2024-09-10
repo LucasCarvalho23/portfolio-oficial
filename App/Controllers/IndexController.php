@@ -136,12 +136,10 @@ class IndexController extends Action {
     public function update() {
         session_start();
         $post = Container::getModel('post');
-
-        echo ("<pre>");
-        print_r ($_POST);
-        echo ("</pre>");
-
-        //$post->updatePost();
+        $post->__set('id', $_POST['id']);
+        $post->__set('title', md5($_POST['title']));
+        $post->__set('description', md5($_POST['description']));
+        $post->updatePost();
         $this->view->postadm = $post->readCountPost($_SESSION['id']);
         //header('Location: /timeline');    
     }

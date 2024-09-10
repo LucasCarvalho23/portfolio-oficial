@@ -28,26 +28,26 @@ $(document).ready(() => {
             this.bottomImgPortfolio06 = document.querySelector("#bottom-img-portfolio06")
 
             if (this.width <= 500) {
-                this.imgPortfolio01.src = "../images/mobile/01/btec-mobile.png";
-                this.imgPortfolio02.src = "../images/mobile/02/escudo-mobile.png";
-                this.imgPortfolio03.src = "../images/mobile/03/gn-mobile.png";
-                this.imgPortfolio04.src = "../images/mobile/04/spotify-mobile.png";
-                this.imgPortfolio05.src = "../images/mobile/05/twitter-mobile.png";
-                this.imgPortfolio06.src = "../images/mobile/06/starplus-mobile.png";
+                this.imgPortfolio01.src = "../images/mobile/01/btec-mobile.png"
+                this.imgPortfolio02.src = "../images/mobile/02/escudo-mobile.png"
+                this.imgPortfolio03.src = "../images/mobile/03/gn-mobile.png"
+                this.imgPortfolio04.src = "../images/mobile/04/spotify-mobile.png"
+                this.imgPortfolio05.src = "../images/mobile/05/twitter-mobile.png"
+                this.imgPortfolio06.src = "../images/mobile/06/starplus-mobile.png"
             } else if (this.width <= 1024) {
-                this.imgPortfolio01.src = "../images/mobile/01/btec.png";
-                this.imgPortfolio02.src = "../images/mobile/02/escudo.png";
-                this.imgPortfolio03.src = "../images/mobile/03/gn-ipad.png";
-                this.imgPortfolio04.src = "../images/mobile/04/spotify-ipad.png";
-                this.imgPortfolio05.src = "../images/mobile/05/twitter-ipad.png";
-                this.imgPortfolio06.src = "../images/mobile/06/starplus-ipad.png";
+                this.imgPortfolio01.src = "../images/mobile/01/btec.png"
+                this.imgPortfolio02.src = "../images/mobile/02/escudo.png"
+                this.imgPortfolio03.src = "../images/mobile/03/gn-ipad.png"
+                this.imgPortfolio04.src = "../images/mobile/04/spotify-ipad.png"
+                this.imgPortfolio05.src = "../images/mobile/05/twitter-ipad.png"
+                this.imgPortfolio06.src = "../images/mobile/06/starplus-ipad.png"
             } else {
-                this.imgPortfolio01.src = "../images/desktop/01/btec.png";
-                this.imgPortfolio02.src = "../images/desktop/02/escudo.png";
-                this.imgPortfolio03.src = "../images/desktop/03/gn.png";
-                this.imgPortfolio04.src = "../images/desktop/04/spotify-desktop.png";
-                this.imgPortfolio05.src = "../images/desktop/05/twitter-desktop.png";
-                this.imgPortfolio06.src = "../images/desktop/06/starplus-desktop.png";
+                this.imgPortfolio01.src = "../images/desktop/01/btec.png"
+                this.imgPortfolio02.src = "../images/desktop/02/escudo.png"
+                this.imgPortfolio03.src = "../images/desktop/03/gn.png"
+                this.imgPortfolio04.src = "../images/desktop/04/spotify-desktop.png"
+                this.imgPortfolio05.src = "../images/desktop/05/twitter-desktop.png"
+                this.imgPortfolio06.src = "../images/desktop/06/starplus-desktop.png"
             }
 
             this.imgPortfolio01.addEventListener("click", () => { 
@@ -169,18 +169,6 @@ $(document).ready(() => {
 
     $(window).on('resize', () => {
         resolution.updateImages();
-    });
-
-    $(document).ready(function() {
-        $('#modalUpdate').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget); // Botão que acionou o modal
-            var postId = button.data('id'); // Extrai o ID do atributo data-id
-
-            // Atualiza o campo oculto do modal
-            var modal = $(this);
-            modal.find('#post-id').val(postId);
-            
-        });
     });
 });
 

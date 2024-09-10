@@ -81,7 +81,15 @@
                                             <button class="menu-btn">⋮</button>
                                             <ul class="menu-options">
                                                 <li>
-                                                    <button class="button-post" data-bs-toggle="modal" data-bs-target="#modalUpdate" data-id="<?= $key['id'] ?>">Update</button>
+                                                    <button 
+                                                        class="button-post" 
+                                                        data-bs-toggle="modal" 
+                                                        data-bs-target="#modalUpdate" 
+                                                        data-id="<?= htmlspecialchars($key['id'] ?? '') ?>"
+                                                        data-title="<?= htmlspecialchars($key['title'] ?? '') ?>"
+                                                        data-description="<?= htmlspecialchars($key['description'] ?? '') ?>">
+                                                        Update
+                                                    </button>
                                                 </li>
                                                 <input type="hidden" name="id" value="<?= $key['id'] ?>">
                                                 <form action="remove" method="post">
@@ -121,7 +129,15 @@
                                                         <button class="menu-btn">⋮</button>
                                                         <ul class="menu-options">
                                                             <li>
-                                                                <button class="button-post" data-bs-toggle="modal" data-bs-target="#modalUpdate">Update</button>
+                                                                <button 
+                                                                    class="button-post" 
+                                                                    data-bs-toggle="modal" 
+                                                                    data-bs-target="#modalUpdate" 
+                                                                    data-id="<?= htmlspecialchars($key['id'] ?? '') ?>"
+                                                                    data-title="<?= htmlspecialchars($key['title'] ?? '') ?>"
+                                                                    data-description="<?= htmlspecialchars($key['description'] ?? '') ?>">
+                                                                    Update
+                                                                </button>
                                                             </li>
                                                             <form action="remove" method="post">
                                                                 <li><button type="submit" class="button-post">Remove</button></li>
@@ -160,7 +176,15 @@
                                                     <button class="menu-btn">⋮</button>
                                                     <ul class="menu-options">
                                                         <li>
-                                                            <button class="button-post" data-bs-toggle="modal" data-bs-target="#modalUpdate">Update</button>
+                                                            <button 
+                                                                class="button-post" 
+                                                                data-bs-toggle="modal" 
+                                                                data-bs-target="#modalUpdate" 
+                                                                data-id="<?= htmlspecialchars($key['id'] ?? '') ?>"
+                                                                data-title="<?= htmlspecialchars($key['title'] ?? '') ?>"
+                                                                data-description="<?= htmlspecialchars($key['description'] ?? '') ?>">
+                                                                Update
+                                                            </button>
                                                         </li>
                                                         <form action="remove" method="post">
                                                             <li><button type="submit" class="button-post">Remove</button></li>
@@ -199,7 +223,15 @@
                                                         <button class="menu-btn">⋮</button>
                                                         <ul class="menu-options">
                                                             <li>
-                                                                <button class="button-post" data-bs-toggle="modal" data-bs-target="#modalUpdate">Update</button>
+                                                                <button 
+                                                                    class="button-post" 
+                                                                    data-bs-toggle="modal" 
+                                                                    data-bs-target="#modalUpdate" 
+                                                                    data-id="<?= htmlspecialchars($key['id'] ?? '') ?>"
+                                                                    data-title="<?= htmlspecialchars($key['title'] ?? '') ?>"
+                                                                    data-description="<?= htmlspecialchars($key['description'] ?? '') ?>">
+                                                                    Update
+                                                                </button>
                                                             </li>
                                                             <form action="remove" method="post">
                                                                 <li><button type="submit" class="button-post">Remove</button></li>
@@ -237,14 +269,14 @@
       <form action="update" method="post">
         <div class="modal-body">
             <input type="hidden" id="post-id" name="id">
-            <select class="form-control mb-4 input-login" name="title">
+            <select class="form-control mb-4 input-login" name="title" id="post-title">
                 <option value="0">-- Choose a subject --</option>
                 <option value="technology">Technology</option>
                 <option value="popculture">Pop culture</option>
                 <option value="othersprojects">Others projects</option>
                 <option value="happening">What's happening?</option>
             </select>
-            <textarea class="form-control mb-2 input-login" name="description" placeholder="Description"></textarea>
+            <textarea class="form-control mb-2 input-login" name="description" placeholder="Description" id="post-description"></textarea>
             <input type="checkbox" name="pinpost" class="mb-4"><span class="pinpost-span"> Pin post</span>
         </div>
         <div class="modal-footer">
@@ -255,3 +287,21 @@
     </div>
   </div>
 </div>
+
+<script src="../javascript/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#modalUpdate').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var postId = button.data('id');
+            var postTitle = button.data('title');
+            var postDescription = button.data('description');
+            console.log(postTitle);
+            console.log(postDescription);
+            var modal = $(this);
+            modal.find('#post-id').val(postId);
+            modal.find('#post-title').val(postTitle);
+            modal.find('#post-description').val(postDescription);
+        });
+    });
+</script>

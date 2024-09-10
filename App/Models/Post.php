@@ -57,13 +57,15 @@
             return true;
         }
 
-        public function updatePost() {
-            $pinpost = $_POST['pinpost'] ?? 'off';
-            echo "<pre>";
-            print_r($_POST);
-            echo "</pre>";
-            echo $pinpost;
-            die;
+        public function updatePost($pinpost) {
+            $query = "UPDATE tb_posts SET title = :title, description = :description, pinpost = :pinpost WHERE id = :id";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id', $_POST['id']);
+            $stmt->bindValue(':title', $_POST['title']);
+            $stmt->bindValue(':description', $_POST['description']);
+            $stmt->bindValue(':pinpost', $pinpost);
+            $stmt->execute();
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         }
         
     }

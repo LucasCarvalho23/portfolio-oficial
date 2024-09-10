@@ -139,10 +139,11 @@ class IndexController extends Action {
         $post->__set('id', $_POST['id']);
         $post->__set('title', $_POST['title']);
         $post->__set('description', $_POST['description']);
-        $post->__set('pinpost', $_POST['pinpost']);
-        $post->updatePost();
+        $pinpost = $_POST['pinpost'] ?? 'off';
+        $post->__set('pinpost', $pinpost);
+        $post->updatePost($pinpost);
         $this->view->postadm = $post->readCountPost($_SESSION['id']);
-        //header('Location: /timeline');    
+        header('Location: /timeline');    
     }
 }
 ?>

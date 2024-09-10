@@ -139,7 +139,12 @@ class IndexController extends Action {
         $post->__set('id', $_POST['id']);
         $post->__set('title', $_POST['title']);
         $post->__set('description', $_POST['description']);
-        $pinpost = $_POST['pinpost'] ?? 'off';
+        if (isset($_POST['pinpost']) && $_POST['pinpost'] == 'on') {
+            $pinpost = 'on';
+            $post->alterPinpost();
+        } else {
+            $pinpost = 'off';
+        }
         $post->__set('pinpost', $pinpost);
         $post->updatePost($pinpost);
         $this->view->postadm = $post->readCountPost($_SESSION['id']);

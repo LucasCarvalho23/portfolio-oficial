@@ -21,6 +21,15 @@
             $this->$attr = $value;
         }
 
+        public function alterPinpost() {
+            $query = "UPDATE tb_posts SET pinpost = 'off' WHERE id != :id AND title = :title";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id', $_POST['id']);
+            $stmt->bindValue(':title', $_POST['title']);
+            $stmt->execute();
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        }
+
         public function createPost() {
             $query = "INSERT INTO tb_posts(id_usuario, title, description, data, pinpost) VALUES (:id_usuario, :title, :description, :data, :pinpost)";
             $stmt = $this->db->prepare($query);

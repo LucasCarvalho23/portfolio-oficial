@@ -132,5 +132,13 @@ class IndexController extends Action {
             }
         }
     }
+
+    public function update() {
+        session_start();
+        $post = Container::getModel('post');
+        $post->updatePost();
+        $this->view->postadm = $post->readCountPost($_SESSION['id']);
+        header('Location: /timeline');    
+    }
 }
 ?>

@@ -56,6 +56,11 @@
             $stmt->execute();
             return true;
         }
+
+        public function updatePost() {
+            echo "Vasco da Gama";
+            die;
+        }
         
     }
 

@@ -80,7 +80,10 @@
                                         <div class="menu-container">
                                             <button class="menu-btn">⋮</button>
                                             <ul class="menu-options">
-                                                <li>Update</li>
+                                                <li>
+                                                    <button class="button-post" data-bs-toggle="modal" data-bs-target="#modalUpdate">Update</button>
+                                                </li>
+                                                <input type="hidden" name="id" value="<?= $key['id'] ?>">
                                                 <form action="remove" method="post">
                                                     <li><button type="submit" class="button-post">Remove</button></li>
                                                     <input type="hidden" name="id" value="<?= $key['id'] ?>">
@@ -117,7 +120,9 @@
                                                     <div class="menu-container">
                                                         <button class="menu-btn">⋮</button>
                                                         <ul class="menu-options">
-                                                            <li>Update</li>
+                                                            <li>
+                                                                <button class="button-post" data-bs-toggle="modal" data-bs-target="#modalUpdate">Update</button>
+                                                            </li>
                                                             <form action="remove" method="post">
                                                                 <li><button type="submit" class="button-post">Remove</button></li>
                                                                 <input type="hidden" name="id" value="<?= $key['id'] ?>">
@@ -154,7 +159,9 @@
                                                 <div class="menu-container">
                                                     <button class="menu-btn">⋮</button>
                                                     <ul class="menu-options">
-                                                        <li>Update</li>
+                                                        <li>
+                                                            <button class="button-post" data-bs-toggle="modal" data-bs-target="#modalUpdate">Update</button>
+                                                        </li>
                                                         <form action="remove" method="post">
                                                             <li><button type="submit" class="button-post">Remove</button></li>
                                                             <input type="hidden" name="id" value="<?= $key['id'] ?>">
@@ -191,7 +198,9 @@
                                                     <div class="menu-container">
                                                         <button class="menu-btn">⋮</button>
                                                         <ul class="menu-options">
-                                                            <li>Update</li>
+                                                            <li>
+                                                                <button class="button-post" data-bs-toggle="modal" data-bs-target="#modalUpdate">Update</button>
+                                                            </li>
                                                             <form action="remove" method="post">
                                                                 <li><button type="submit" class="button-post">Remove</button></li>
                                                                 <input type="hidden" name="id" value="<?= $key['id'] ?>">
@@ -214,4 +223,34 @@
             </div>
         </div>
     </div>
+</div>
+
+
+<!-- MODAL -->
+<div class="modal fade" id="modalUpdate" tabindex="-1" aria-labelledby="modalUpdateLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalUpdateLabel">Update Post</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="update" method="post">
+        <div class="modal-body">
+            <select class="form-control mb-4 input-login" name="title">
+                <option value="0">-- Choose a subject --</option>
+                <option value="technology">Technology</option>
+                <option value="popculture">Pop culture</option>
+                <option value="othersprojects">Others projects</option>
+                <option value="happening">What's happening?</option>
+            </select>
+            <textarea class="form-control mb-2 input-login" name="description" placeholder="Description"></textarea>
+            <input type="checkbox" name="pinpost" class="mb-4"><span class="pinpost-span"> Pin post</span>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-warning text-primary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

@@ -51,6 +51,11 @@
                 'controller' => 'IndexController',
                 'action' => 'timelineadm'
             );
+            $routes['update'] = array(
+                'route' => '/update',
+                'controller' => 'IndexController',
+                'action' => 'update'
+            );
 
             $this->setRoutes($routes);
             

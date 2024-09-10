@@ -1,3 +1,7 @@
+<?php
+    use MF\Model\Container;
+    $post = Container::getModel('post');
+?>
 <div class="container container-fluid">
     <div class="row d-flex container-fluid justify-content-center">
         <div class="col-8 container-timeline">
@@ -45,10 +49,6 @@
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-technology" role="tabpanel" aria-labelledby="nav-technology-tab">
-                        <?php
-                            use MF\Model\Container;
-                            $post = Container::getModel('post');
-                        ?>
                         <div class="col-10">
                             <?php
                                 $postTech = $post->readPost('technology');

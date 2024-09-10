@@ -11,6 +11,7 @@
         private $description;
         private $pinpost;
         private $data;
+        private $data_modif;
 
         public function __get($attr) {
             return $this->$attr;
@@ -41,11 +42,15 @@
         }
 
         public function readPost($title) {
-            $query = "SELECT description, data FROM tb_posts  WHERE title = :title ORDER BY data DESC";
+            $query = "SELECT id, description, data FROM tb_posts  WHERE title = :title ORDER BY data DESC";
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(':title', $title);
             $stmt->execute();
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        }
+
+        public function removePost() {
+            print_r ($_POST);
         }
         
     }

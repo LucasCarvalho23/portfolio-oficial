@@ -1,3 +1,11 @@
+<?php
+    use MF\Model\Container;
+    $post = Container::getModel('post');
+
+    if (!isset($_SESSION['login']) || $_SESSION['login'] === false) {
+        $_SESSION['login'] = false;
+    };
+?>
 <div class="container container-fluid">
     <div class="row d-flex container-fluid justify-content-center">
         <div class="col-8 container-timeline">
@@ -5,14 +13,43 @@
                 <div class="col-md-4">
                     <img src="../images/timeline/avatar.png" alt="avatar" class="image-avatar">
                 </div>
-                <div class="col-8 container-prev-bio">
+                <div class="col-7 container-prev-bio">
                     <div class="container-bio">
                         <h3>Lucas Carvalho</h3>
                         <p class="bio-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore adipisci magnam nobis explicabo dignissimos ratione autem eius libero perspiciatis veniam dolore facere dolorum totam, odio.</p>
                         <spam><?= $this->view->postadm ?> posts</spam>
                     </div>
                 </div>
+                <?php 
+                    if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+                ?>
+                        <div class="col-1">
+                            <a href="/logout" class="logout-button">Logout</a>
+                        </div>
+                <?php } ?>
             </div>
+            <?php 
+                if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+            ?>
+            <div class="row container-fluid container-post-adm">
+                <div class="col-8 container-fluid justify-content-center">
+                   <form action="/postadm" method="post" class="container-form">
+                        <select class="form-control mb-4 input-login" name="title">
+                            <option value="0">-- Choose a subject --</option>
+                            <option value="technology">Technology</option>
+                            <option value="popculture">Pop culture</option>
+                            <option value="othersprojects">Others projects</option>
+                            <option value="happening">What's happening?</option>
+                        </select>
+                        <textarea class="form-control mb-2 input-login" name="description" placeholder="Description"></textarea>
+                        <input type="checkbox" name="pinpost" class="mb-4"><span class="pinpost-span"> Pin post</span>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-secondary" type="submit">Post</button>
+                        </div>
+                   </form>
+                </div>
+            </div>
+            <?php } ?>
             <div class="row container-posts d-flex justify-content-center">
                 <nav>
                     <div class="nav nav-tabs d-flex justify-content-center nav-tab" id="nav-tab" role="tablist">
@@ -35,11 +72,28 @@
                                         <img src="../images/timeline/avatar.png" alt="avatar" class="img-individual-post">
                                     </div>
                                     <div class="col-9 container-content-post">
-                                        <h5>Lucas Carvalho</h5>
-                                        <p><?= $key['description'] ?></p>
-                                        <div class="margin-right">
-                                            <p class="data-post">Data: <?= $key['data'] ?></p>
+                                    <div class="header-container">
+                                    <h5>Lucas Carvalho</h5>
+                                    <?php 
+                                        if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+                                    ?>
+                                        <div class="menu-container">
+                                            <button class="menu-btn">⋮</button>
+                                            <ul class="menu-options">
+                                                <li>Update</li>
+                                                <form action="remove" method="post">
+                                                    <li><button type="submit" class="button-post">Remove</button></li>
+                                                    <input type="hidden" name="id" value="<?= $key['id'] ?>">
+                                                </form>
+                                                <li>Fix</li>
+                                            </ul>
                                         </div>
+                                    <?php } ?>
+                                </div>
+                                <p><?= $key['description'] ?></p>
+                                <div class="margin-right">
+                                    <p class="data-post">Data: <?= $key['data'] ?></p>
+                                </div>
                                     </div>
                                 </div>
                             <?php } ?>
@@ -48,66 +102,111 @@
                     <div class="tab-pane fade" id="nav-popculture" role="tabpanel" aria-labelledby="nav-popculture-tab">
                         <div class="col-10">
                             <?php
-                                $postTech = $post->readPost('technology');
-                                foreach ($postTech as $key) { 
-                            ?>
-                                <hr>
-                                <div class="row container-post-timeline d-flex justify-content-center">
-                                    <div class="col-3 container-img-individual-post d-none d-md-block">
-                                        <img src="../images/timeline/avatar.png" alt="avatar" class="img-individual-post">
-                                    </div>
-                                    <div class="col-9 container-content-post">
-                                        <h5>Lucas Carvalho</h5>
-                                        <p><?= $key['description'] ?></p>
-                                        <div class="margin-right">
-                                            <p class="data-post">Data: <?= $key['data'] ?></p>
+                                $postTech = $post->readPost('popculture');
+                                foreach ($postTech as $key) { ?>
+                                    <hr>
+                                    <div class="row container-post-timeline d-flex justify-content-center">
+                                        <div class="col-3 container-img-individual-post d-none d-md-block">
+                                            <img src="../images/timeline/avatar.png" alt="avatar" class="img-individual-post">
+                                        </div>
+                                        <div class="col-9 container-content-post">
+                                            <div class="header-container">
+                                                <h5>Lucas Carvalho</h5>
+                                                <?php if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+                                                ?>
+                                                    <div class="menu-container">
+                                                        <button class="menu-btn">⋮</button>
+                                                        <ul class="menu-options">
+                                                            <li>Update</li>
+                                                            <form action="remove" method="post">
+                                                                <li><button type="submit" class="button-post">Remove</button></li>
+                                                                <input type="hidden" name="id" value="<?= $key['id'] ?>">
+                                                            </form>
+                                                            <li>Fix</li>
+                                                        </ul>
+                                                    </div>
+                                                <?php } ?>
+                                            </div>
+                                            <p><?= $key['description'] ?></p>
+                                            <div class="margin-right">
+                                                <p class="data-post">Data: <?= $key['data'] ?></p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                             <?php } ?>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-others" role="tabpanel" aria-labelledby="nav-others-tab">
                         <div class="col-10">
                             <?php
-                                $postTech = $post->readPost('technology');
-                                foreach ($postTech as $key) { 
-                            ?>
-                                <hr>
-                                <div class="row container-post-timeline d-flex justify-content-center">
-                                    <div class="col-3 container-img-individual-post d-none d-md-block">
-                                        <img src="../images/timeline/avatar.png" alt="avatar" class="img-individual-post">
+                                $postTech = $post->readPost('othersprojects');
+                                foreach ($postTech as $key) { ?>
+                                    <hr>
+                                    <div class="row container-post-timeline d-flex justify-content-center">
+                                        <div class="col-3 container-img-individual-post d-none d-md-block">
+                                            <img src="../images/timeline/avatar.png" alt="avatar" class="img-individual-post">
+                                        </div>
+                                        <div class="col-9 container-content-post">
+                                            <div class="header-container">
+                                            <h5>Lucas Carvalho</h5>
+                                            <?php if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+                                            ?>
+                                                <div class="menu-container">
+                                                    <button class="menu-btn">⋮</button>
+                                                    <ul class="menu-options">
+                                                        <li>Update</li>
+                                                        <form action="remove" method="post">
+                                                            <li><button type="submit" class="button-post">Remove</button></li>
+                                                            <input type="hidden" name="id" value="<?= $key['id'] ?>">
+                                                        </form>
+                                                        <li>Fix</li>
+                                                    </ul>
+                                                </div>
+                                            <?php } ?>
                                     </div>
-                                    <div class="col-9 container-content-post">
-                                        <h5>Lucas Carvalho</h5>
-                                        <p><?= $key['description'] ?></p>
-                                        <div class="margin-right">
-                                            <p class="data-post">Data: <?= $key['data'] ?></p>
+                                    <p><?= $key['description'] ?></p>
+                                    <div class="margin-right">
+                                        <p class="data-post">Data: <?= $key['data'] ?></p>
+                                    </div>
                                         </div>
                                     </div>
-                                </div>
                             <?php } ?>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-diary" role="tabpanel" aria-labelledby="nav-diary-tab">
                         <div class="col-10">
                             <?php
-                                $postTech = $post->readPost('technology');
-                                foreach ($postTech as $key) { 
-                            ?>
-                                <hr>
-                                <div class="row container-post-timeline d-flex justify-content-center">
-                                    <div class="col-3 container-img-individual-post d-none d-md-block">
-                                        <img src="../images/timeline/avatar.png" alt="avatar" class="img-individual-post">
-                                    </div>
-                                    <div class="col-9 container-content-post">
-                                        <h5>Lucas Carvalho</h5>
-                                        <p><?= $key['description'] ?></p>
-                                        <div class="margin-right">
-                                            <p class="data-post">Data: <?= $key['data'] ?></p>
+                                $postTech = $post->readPost('happening');
+                                foreach ($postTech as $key) { ?>
+                                    <hr>
+                                    <div class="row container-post-timeline d-flex justify-content-center">
+                                        <div class="col-3 container-img-individual-post d-none d-md-block">
+                                            <img src="../images/timeline/avatar.png" alt="avatar" class="img-individual-post">
+                                        </div>
+                                            <div class="col-9 container-content-post">
+                                                <div class="header-container">
+                                                <h5>Lucas Carvalho</h5>
+                                                <?php if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+                                                ?>
+                                                    <div class="menu-container">
+                                                        <button class="menu-btn">⋮</button>
+                                                        <ul class="menu-options">
+                                                            <li>Update</li>
+                                                            <form action="remove" method="post">
+                                                                <li><button type="submit" class="button-post">Remove</button></li>
+                                                                <input type="hidden" name="id" value="<?= $key['id'] ?>">
+                                                            </form>
+                                                            <li>Fix</li>
+                                                        </ul>
+                                                    </div>
+                                                <?php } ?>
+                                            </div>
+                                            <p><?= $key['description'] ?></p>
+                                            <div class="margin-right">
+                                                <p class="data-post">Data: <?= $key['data'] ?></p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                             <?php } ?>
                         </div>
                     </div>

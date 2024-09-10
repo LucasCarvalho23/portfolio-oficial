@@ -31,22 +31,25 @@
                 'controller' => 'IndexController',
                 'action' => 'portfolio'
             );
+            $routes['postadm'] = array(
+                'route' => '/postadm',
+                'controller' => 'IndexController',
+                'action' => 'postadm'
+            );
+            $routes['remove'] = array(
+                'route' => '/remove',
+                'controller' => 'IndexController',
+                'action' => 'remove'
+            );
             $routes['timeline'] = array(
                 'route' => '/timeline',
                 'controller' => 'IndexController',
                 'action' => 'timeline'
             );
-
             $routes['timelineadm'] = array(
                 'route' => '/timelineadm',
                 'controller' => 'IndexController',
                 'action' => 'timelineadm'
-            );
-
-            $routes['postadm'] = array(
-                'route' => '/postadm',
-                'controller' => 'IndexController',
-                'action' => 'postadm'
             );
 
             $this->setRoutes($routes);

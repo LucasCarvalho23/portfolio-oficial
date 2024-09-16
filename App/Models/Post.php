@@ -51,7 +51,7 @@
         }
 
         public function readPost($title) {
-            $query = "SELECT id, title, description, data, pinpost FROM tb_posts WHERE title = :title ORDER BY data DESC";
+            $query = "SELECT id, title, description, data, pinpost FROM tb_posts WHERE title = :title ORDER BY pinpost DESC, data DESC";
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(':title', $title);
             $stmt->execute();

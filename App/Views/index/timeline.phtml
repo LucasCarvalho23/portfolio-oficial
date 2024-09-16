@@ -92,11 +92,15 @@
                                                         Update
                                                     </button>
                                                 </li>
-                                                <input type="hidden" name="id" value="<?= $key['id'] ?>">
-                                                <form action="remove" method="post">
-                                                    <li><button type="submit" class="button-post">Remove</button></li>
-                                                    <input type="hidden" name="id" value="<?= $key['id'] ?>">
-                                                </form>
+                                                <li>
+                                                    <button 
+                                                        class="button-post" 
+                                                        data-bs-toggle="modal" 
+                                                        data-bs-target="#modalRemove" 
+                                                        data-id="<?= htmlspecialchars($key['id'] ?? '') ?>">
+                                                        Remove
+                                                    </button>
+                                                </li>
                                                 <form action="fixed" method="post" class="container-button-fix">
                                                     <button type="submit" class="button-fix">Fix</button>
                                                     <input type="hidden" name="id" value="<?= $key['id'] ?>">
@@ -145,10 +149,15 @@
                                                                     Update
                                                                 </button>
                                                             </li>
-                                                            <form action="remove" method="post">
-                                                                <li><button type="submit" class="button-post">Remove</button></li>
-                                                                <input type="hidden" name="id" value="<?= $key['id'] ?>">
-                                                            </form>
+                                                            <li>
+                                                                <button 
+                                                                    class="button-post" 
+                                                                    data-bs-toggle="modal" 
+                                                                    data-bs-target="#modalRemove" 
+                                                                    data-id="<?= htmlspecialchars($key['id'] ?? '') ?>">
+                                                                    Remove
+                                                                </button>
+                                                            </li>
                                                             <form action="fixed" method="post" class="container-button-fix">
                                                                 <button type="submit" class="button-fix">Fix</button>
                                                                 <input type="hidden" name="id" value="<?= $key['id'] ?>">
@@ -197,10 +206,15 @@
                                                                 Update
                                                             </button>
                                                         </li>
-                                                        <form action="remove" method="post">
-                                                            <li><button type="submit" class="button-post">Remove</button></li>
-                                                            <input type="hidden" name="id" value="<?= $key['id'] ?>">
-                                                        </form>
+                                                        <li>
+                                                            <button 
+                                                                class="button-post" 
+                                                                data-bs-toggle="modal" 
+                                                                data-bs-target="#modalRemove" 
+                                                                data-id="<?= htmlspecialchars($key['id'] ?? '') ?>">
+                                                                Remove
+                                                            </button>
+                                                        </li>
                                                         <form action="fixed" method="post" class="container-button-fix">
                                                             <button type="submit" class="button-fix">Fix</button>
                                                             <input type="hidden" name="id" value="<?= $key['id'] ?>">
@@ -249,10 +263,15 @@
                                                                     Update
                                                                 </button>
                                                             </li>
-                                                            <form action="remove" method="post">
-                                                                <li><button type="submit" class="button-post">Remove</button></li>
-                                                                <input type="hidden" name="id" value="<?= $key['id'] ?>">
-                                                            </form>
+                                                            <li>
+                                                                <button 
+                                                                    class="button-post" 
+                                                                    data-bs-toggle="modal" 
+                                                                    data-bs-target="#modalRemove" 
+                                                                    data-id="<?= htmlspecialchars($key['id'] ?? '') ?>">
+                                                                    Remove
+                                                                </button>
+                                                            </li>
                                                             <form action="fixed" method="post" class="container-button-fix">
                                                                 <button type="submit" class="button-fix">Fix</button>
                                                                 <input type="hidden" name="id" value="<?= $key['id'] ?>">
@@ -278,7 +297,9 @@
 </div>
 
 
-<!-- MODAL -->
+<!-- MODAIS -->
+
+<!-- MODAL UPDATE --> 
 <div class="modal fade" id="modalUpdate" tabindex="-1" aria-labelledby="modalUpdateLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -308,6 +329,28 @@
   </div>
 </div>
 
+
+<!-- MODAL REMOVE --> 
+<div class="modal fade" id="modalRemove" tabindex="-1" aria-labelledby="modalRemoveLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalRemoveLabel">Remove Post?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="update" method="post">
+        <div class="modal-body">
+            <input type="hidden" id="post-id" name="id">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-warning text-primary" data-bs-dismiss="modal">No. Close</button>
+            <button type="submit" class="btn btn-success">Yes. Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <script src="../javascript/jquery-3.7.1.min.js"></script>
 <script>
     $(document).ready(function() {
@@ -326,6 +369,14 @@
             } else if (postPinpost == 'off') {
                 modal.find('#post-pinpost').prop('checked', false);
             }
+        });
+    });
+    $(document).ready(function() {
+        $('#modalRemove').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var postId = button.data('id');
+            var modal = $(this);
+            modal.find('#post-id').val(postId);
         });
     });
 </script>

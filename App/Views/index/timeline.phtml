@@ -101,11 +101,16 @@
                                                         Remove
                                                     </button>
                                                 </li>
-                                                <form action="fixed" method="post" class="container-button-fix">
-                                                    <button type="submit" class="button-fix">Fix</button>
-                                                    <input type="hidden" name="id" value="<?= $key['id'] ?>">
-                                                    <input type="hidden" name="title" value="<?= $key['title'] ?>">
-                                                </form>
+                                                <li class="container-button-fix">
+                                                    <button 
+                                                        class="button-post" 
+                                                        data-bs-toggle="modal" 
+                                                        data-bs-target="#modalFix" 
+                                                        data-id="<?= htmlspecialchars($key['id'] ?? '') ?>"
+                                                        data-title="<?= htmlspecialchars($key['title'] ?? '') ?>">
+                                                        Fix
+                                                    </button>
+                                                </li>
                                             </ul>
                                         </div>
                                     <?php } ?>
@@ -158,11 +163,16 @@
                                                                     Remove
                                                                 </button>
                                                             </li>
-                                                            <form action="fixed" method="post" class="container-button-fix">
-                                                                <button type="submit" class="button-fix">Fix</button>
-                                                                <input type="hidden" name="id" value="<?= $key['id'] ?>">
-                                                                <input type="hidden" name="title" value="<?= $key['title'] ?>">
-                                                            </form>
+                                                            <li class="container-button-fix">
+                                                                <button 
+                                                                    class="button-post" 
+                                                                    data-bs-toggle="modal" 
+                                                                    data-bs-target="#modalFix" 
+                                                                    data-id="<?= htmlspecialchars($key['id'] ?? '') ?>"
+                                                                    data-title="<?= htmlspecialchars($key['title'] ?? '') ?>">
+                                                                    Fix
+                                                                </button>
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                 <?php } ?>
@@ -215,11 +225,16 @@
                                                                 Remove
                                                             </button>
                                                         </li>
-                                                        <form action="fixed" method="post" class="container-button-fix">
-                                                            <button type="submit" class="button-fix">Fix</button>
-                                                            <input type="hidden" name="id" value="<?= $key['id'] ?>">
-                                                            <input type="hidden" name="title" value="<?= $key['title'] ?>">
-                                                        </form>
+                                                        <li class="container-button-fix">
+                                                            <button 
+                                                                class="button-post" 
+                                                                data-bs-toggle="modal" 
+                                                                data-bs-target="#modalFix" 
+                                                                data-id="<?= htmlspecialchars($key['id'] ?? '') ?>"
+                                                                data-title="<?= htmlspecialchars($key['title'] ?? '') ?>">
+                                                                Fix
+                                                            </button>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             <?php } ?>
@@ -272,11 +287,16 @@
                                                                     Remove
                                                                 </button>
                                                             </li>
-                                                            <form action="fixed" method="post" class="container-button-fix">
-                                                                <button type="submit" class="button-fix">Fix</button>
-                                                                <input type="hidden" name="id" value="<?= $key['id'] ?>">
-                                                                <input type="hidden" name="title" value="<?= $key['title'] ?>">
-                                                            </form>
+                                                            <li class="container-button-fix">
+                                                                <button 
+                                                                    class="button-post" 
+                                                                    data-bs-toggle="modal" 
+                                                                    data-bs-target="#modalFix" 
+                                                                    data-id="<?= htmlspecialchars($key['id'] ?? '') ?>"
+                                                                    data-title="<?= htmlspecialchars($key['title'] ?? '') ?>">
+                                                                    Fix
+                                                                </button>
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                 <?php } ?>
@@ -351,16 +371,39 @@
   </div>
 </div>
 
+
+<!-- MODAL FIX --> 
+<div class="modal fade" id="modalFix" tabindex="-1" aria-labelledby="modalFixLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalFixLabel">Fix Post?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="fixed" method="post">
+        <div class="modal-body">
+            <input type="hidden" id="post-id" name="id">
+            <input type="hidden" id="post-title" name="title">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-warning text-primary" data-bs-dismiss="modal">No. Close</button>
+            <button type="submit" class="btn btn-success">Yes. Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <script src="../javascript/jquery-3.7.1.min.js"></script>
 <script>
     $(document).ready(function() {
         $('#modalUpdate').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget);
-            var postId = button.data('id');
-            var postTitle = button.data('title');
-            var postDescription = button.data('description');
-            var postPinpost = button.data('pinpost');
-            var modal = $(this);
+            let button = $(event.relatedTarget);
+            let postId = button.data('id');
+            let postTitle = button.data('title');
+            let postDescription = button.data('description');
+            let postPinpost = button.data('pinpost');
+            let modal = $(this);
             modal.find('#post-id').val(postId);
             modal.find('#post-title').val(postTitle);
             modal.find('#post-description').val(postDescription);
@@ -373,10 +416,20 @@
     });
     $(document).ready(function() {
         $('#modalRemove').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget);
-            var postId = button.data('id');
-            var modal = $(this);
+            let button = $(event.relatedTarget);
+            let postId = button.data('id');
+            let modal = $(this);
             modal.find('#post-id').val(postId);
+        });
+    });
+    $(document).ready(function() {
+        $('#modalFix').on('show.bs.modal', function (event) {
+            let button = $(event.relatedTarget);
+            let postId = button.data('id');
+            let postTitle = button.data('title');
+            let modal = $(this);
+            modal.find('#post-id').val(postId);
+            modal.find('#post-title').val(postTitle);
         });
     });
 </script>

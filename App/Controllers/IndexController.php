@@ -11,6 +11,36 @@ class IndexController extends Action {
         $this->render('aboutme');
     }
 
+    public function fixed() {
+        $post = Container::getModel('post');
+        $post->__set('pinpost', 'on');
+        $id_post = $_POST['id'];
+        $title = $_POST['title'];
+        $post->fixed($id_post, $title);
+        $this->view->postadm = $post->readCountPost($_SESSION['id']);
+        header('Location: /timeline');
+    }
+
+    public function getJobDetails() {
+        $titleImg = $_POST['title']; 
+        $jobs = Container::getModel('jobs');
+        $job = $jobs->readJobs($titleImg);
+    
+        if ($job) {
+            $response = [
+                'name' => $job[0]['name'] ?? '',
+                'description' => $job[0]['description'] ?? '',
+                'technologies' => $job[0]['technologies'] ?? '',
+                'github' => $job[0]['github'] ?? '',
+                'site' => $job[0]['site'] ?? '',
+                'title' => $titleImg
+            ];
+            echo json_encode($response); 
+        } else {
+            echo json_encode(['error' => 'Job not found']);
+        }
+    }
+
     public function index() {
         $this->loadUserData();
         $this->render('index');
@@ -39,26 +69,6 @@ class IndexController extends Action {
         } else {
             $this->loadUserData();
             $this->render('portfolio');
-        }
-    }
-    
-    public function getJobDetails() {
-        $titleImg = $_POST['title']; 
-        $jobs = Container::getModel('jobs');
-        $job = $jobs->readJobs($titleImg);
-    
-        if ($job) {
-            $response = [
-                'name' => $job[0]['name'] ?? '',
-                'description' => $job[0]['description'] ?? '',
-                'technologies' => $job[0]['technologies'] ?? '',
-                'github' => $job[0]['github'] ?? '',
-                'site' => $job[0]['site'] ?? '',
-                'title' => $titleImg
-            ];
-            echo json_encode($response); 
-        } else {
-            echo json_encode(['error' => 'Job not found']);
         }
     }
 

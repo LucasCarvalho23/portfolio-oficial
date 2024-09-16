@@ -42,6 +42,20 @@
             return $this;
         }
 
+        public function fixed($id_post, $title) {
+            $query = "UPDATE tb_posts SET pinpost = 'off' WHERE id != :id_post AND title = :title";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id_post', $id_post);
+            $stmt->bindValue(':title', $title);
+            $stmt->execute();
+            $queryOn = "UPDATE tb_posts SET pinpost = 'on' WHERE id = :id_post AND title = :title";
+            $stmt = $this->db->prepare($queryOn);
+            $stmt->bindValue(':id_post', $id_post);
+            $stmt->bindValue(':title', $title);
+            $stmt->execute();
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        }
+
         public function readCountPost($id_usuario) {
             $query = "SELECT COUNT(*) FROM tb_posts WHERE id_usuario = :id_usuario";
             $stmt = $this->db->prepare($query);

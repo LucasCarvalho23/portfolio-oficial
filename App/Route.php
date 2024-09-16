@@ -11,6 +11,11 @@
                 'controller' => 'IndexController',
                 'action' => 'aboutme'
             );
+            $routes['fixed'] = array(
+                'route' => '/fixed',
+                'controller' => 'IndexController',
+                'action' => 'fixed'
+            );
             $routes['index'] = array(
                 'route' => '/',
                 'controller' => 'IndexController',

@@ -458,10 +458,18 @@ footer hr {
  
 }
 
-.button-post {
+.button-post, .button-fix {
     text-decoration: none;
     border: none;
     background-color: transparent;
+}
+
+.container-button-fix {
+    text-align: center;
+}
+
+.button-fix {
+    color: black;
 }
 
 /****************************

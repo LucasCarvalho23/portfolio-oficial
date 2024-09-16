@@ -1,1 +1,34 @@
-<p>About me</p>
+<?php
+
+    $birthday = new DateTime('1990-07-03');
+    $today = new DateTime('now');
+    $age = $today->diff($birthday)->y;
+
+?>
+
+<div class="container container-fluid">
+    <div class="row container-fluid d-flex justify-content-center">
+        <div class="col-8">
+            <div class="row">
+                <div class="col-12 col-md-6 order-0 order-md-0 container-img-avatar">
+                    <img src="../images/aboutme/avatar.png" class="img-avatar-aboutme">
+                </div>
+                <div class="col-12 col-md-6 order-1 order-md-1 container-descr-avatar">
+                    <p class="descr-avatar-aboutme">Hello! I'm Lucas, a <?= $age ?>-year-old Full-Stack Developer with a strong background in Systems Analysis and Development, as well as Strategic People Management.</p>
+                    <p class="descr-avatar-aboutme">I have extensive experience with JavaScript, PHP 7, and Bootstrap 5.3, and I'm passionate about creating innovative and functional solutions. I'm always eager to take on new challenges and learn emerging technologies to continuously enhance my skills and deliver high-quality results. Feel free to explore my <a href="portfolio" class="link-aboutme">portfolio</a> and check out my latest projects.</p>
+                </div>
+                <div class="col-12 col-md-6 order-2 order-md-2 container-social-network d-flex justify-content-around">
+                    <a href="https://www.linkedin.com/in/lucas-carvalho-b7b506b5/" target="_blank">
+                        <img src="../images/aboutme/linkedin.png" alt="linkedin" class="img-social-network">
+                    </a>
+                    <a href="https://github.com/LucasCarvalho23" target="_blank">
+                        <img src="../images/aboutme/github.png" alt="github" class="img-social-network">
+                    </a>
+                    <a href="../files/LucasCarvalhodaSilva.pdf" download="LucasCarvalhodaSilva.pdf">
+                        <img src="../images/aboutme/cv.png" alt="curriculo" class="img-social-network">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

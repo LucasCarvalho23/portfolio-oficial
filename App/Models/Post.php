@@ -57,7 +57,7 @@
         }
 
         public function readCountPost($id_usuario) {
-            $query = "SELECT COUNT(*) FROM tb_posts WHERE id_usuario = :id_usuario";
+            $query = "SELECT COUNT(*) FROM tb_posts WHERE id_usuario = :id_usuario AND title != '' AND title != '0'";
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(':id_usuario', $id_usuario);
             $stmt->execute();

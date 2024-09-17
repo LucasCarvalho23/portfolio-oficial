@@ -4,6 +4,7 @@
 -LAYOUT
 --- NAVBAR
 --- FOOTER
+-HOME
 -LOGIN
 -PORTFOLIO
 --- CAROUSEL
@@ -138,6 +139,63 @@ footer hr {
 
 .icon-up.show {
     display: block;
+}
+
+
+/****************************
+********* HOME *************
+****************************/
+
+.container-home {
+    background-image: url('../images/home/wallpaper.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    width: 100vw; 
+    height: 100vh; 
+    min-height: 100vh; 
+    overflow: hidden;
+}
+
+.p-first-home {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.p-second-home {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.p-third-home {
+    font-size: .9em;
+    font-weight: bold;
+}
+
+.container-home a {
+    text-decoration: none;
+    color: rgb(71, 71, 71);
+    font-weight: bold;
+    font-size: .8em;
+}
+
+.container-info-home {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 200px;
+    text-align: center;
+    max-width: 90%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+    .container-home {
+        background-image: url('../images/home/wallpaper-mobile.jpg');
+    }
+    .container-info-home {
+        padding: 0;
+    }
 }
 
 /****************************

@@ -195,6 +195,7 @@ footer hr {
     }
     .container-info-home {
         padding: 0;
+        width: 70vw;
     }
 }
 

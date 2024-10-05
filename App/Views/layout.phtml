@@ -23,15 +23,21 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav w-100 justify-content-end justify-content-lg-center">
             <li class="nav-item">
-              <a class="nav-link underscore" aria-current="page" href="/portfolio">Portfolio</a>
+              <a class="nav-link underscore" aria-current="page" href="/portfolio" id="portfolio-menu">Portfolio</a>
             </li> 
             <li class="nav-item">
-              <a class="nav-link underscore" href="/timeline">It's not a blog</a>
+              <a class="nav-link underscore" href="/timeline" id="itsnotablog-menu">It's not a blog</a>
             </li> 
             <li class="nav-item">
-              <a class="nav-link underscore" href="/aboutme">About Me</a>
+              <a class="nav-link underscore" href="/aboutme" id="aboutme-menu">About Me</a>
             </li>
           </ul>
+
+          <div class="d-flex ms-auto justify-content-end justify-content-lg-center me-3">
+            <button class="button-lang-icon" onclick="changeLang()">
+              <img src="./images/logo-br.png" alt="br" class="lang-icon" id="lang-icon">
+            </button>
+          </div>  
 
           <div class="d-flex ms-auto justify-content-end justify-content-lg-center">
             <?php 

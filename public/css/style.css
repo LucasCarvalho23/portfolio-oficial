@@ -102,6 +102,15 @@ body {
     flex: 1; 
 }
 
+.button-lang-icon {
+    border: none;
+}
+
+.lang-icon {
+    width: 25px;
+    cursor: pointer;
+}
+
 /* FOOTER */
 
 footer {

@@ -111,6 +111,11 @@ body {
     cursor: pointer;
 }
 
+.theme-icon {
+    width: 70px;
+    cursor: pointer;
+}
+
 /* FOOTER */
 
 footer {
